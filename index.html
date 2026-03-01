@@ -10,19 +10,30 @@
         :root { --bg-color: #0f172a; --text-color: #f8fafc; --accent-color: #38bdf8; --secondary-bg: #1e293b; --slate-400: #94a3b8; }
         * { box-sizing: border-box; scroll-behavior: smooth; }
         body { margin: 0; font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--text-color); line-height: 1.6; }
+        
         nav { display: flex; justify-content: space-between; padding: 1.5rem 10%; position: fixed; width: 100%; top: 0; background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(12px); z-index: 1000; border-bottom: 1px solid #334155; }
         .logo { font-weight: 800; font-size: 1.2rem; color: var(--accent-color); text-transform: uppercase; }
         nav ul { display: flex; list-style: none; gap: 2rem; margin: 0; }
-        nav a { text-decoration: none; color: var(--text-color); font-size: 0.9rem; font-weight: 500; }
+        nav a { text-decoration: none; color: var(--text-color); font-size: 0.9rem; font-weight: 500; transition: 0.3s; }
+        nav a:hover { color: var(--accent-color); }
+
         section { padding: 120px 10% 80px; }
         .section-title { font-size: 2.5rem; margin-bottom: 3rem; position: relative; display: inline-block; }
         .section-title::after { content: ''; position: absolute; left: 0; bottom: -10px; width: 60px; height: 4px; background: var(--accent-color); }
         
-        /* Hero */
+        /* Hero Section */
         .hero { min-height: 100vh; display: flex; align-items: center; gap: 4rem; }
         .hero-image { width: 280px; height: 280px; border-radius: 50%; border: 4px solid var(--accent-color); overflow: hidden; flex-shrink: 0; background: #1e293b; }
         .hero-image img { width: 100%; height: 100%; object-fit: cover; }
+        .hero-content { flex: 1; }
+        .hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); margin: 0; line-height: 1.1; color: var(--text-color); }
         .intro-text { font-size: 1.15rem; line-height: 1.8; color: var(--slate-400); max-width: 700px; margin: 1.5rem 0; border-left: 3px solid var(--accent-color); padding-left: 20px; }
+
+        /* Buttons */
+        .btn-group { display: flex; gap: 15px; margin-top: 2rem; flex-wrap: wrap; }
+        .btn { display: inline-block; background: var(--accent-color); color: #0f172a; padding: 0.8rem 2rem; border-radius: 50px; text-decoration: none; font-weight: 800; transition: 0.3s; border: 2px solid var(--accent-color); }
+        .btn-outline { background: transparent; color: var(--accent-color); }
+        .btn:hover { transform: scale(1.05); opacity: 0.9; box-shadow: 0 0 20px rgba(56, 189, 248, 0.4); }
 
         /* Skills */
         .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1.2rem; }
@@ -32,27 +43,43 @@
         .skill-item i { font-size: 2rem; color: var(--accent-color); margin-bottom: 12px; }
         h3.category { color: var(--slate-400); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin: 2rem 0 1rem; }
 
-        @media (max-width: 992px) { .hero { flex-direction: column; text-align: center; padding-top: 100px; } .intro-text { border-left: none; border-top: 3px solid var(--accent-color); padding-top: 20px; } }
+        @media (max-width: 992px) { 
+            .hero { flex-direction: column; text-align: center; padding-top: 100px; } 
+            .intro-text { border-left: none; border-top: 3px solid var(--accent-color); padding-top: 20px; }
+            .btn-group { justify-content: center; }
+        }
     </style>
 </head>
 <body>
-    <nav><div class="logo">Hanh Vy.</div>
-        <ul><li><a href="#about">About</a></li><li><a href="#skills">Skills</a></li><li><a href="#contact">Contact</a></li></ul>
+    <nav>
+        <div class="logo">Hanh Vy.</div>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
     </nav>
 
     <section id="about" class="hero">
-        <div class="hero-image"><img src="avatar.JPG" alt="Nguyen Mai Hanh Vy"></div>
+        <div class="hero-image">
+            <img src="avatar.jpg" alt="Avatar" onerror="this.src='https://ui-avatars.com/api/?name=Hanh+Vy&background=38bdf8&color=fff&size=300'">
+        </div>
         <div class="hero-content">
             <span style="color: var(--accent-color); font-weight: 600; letter-spacing: 3px;">HELLO, I AM</span>
             <h1>Nguyen Mai Hanh Vy.</h1>
             <div class="intro-text">
                 A recent <strong>Marketing Communications</strong> graduate. I focus my energy on being a <strong>dedicated learner</strong> and a <strong>disciplined listener</strong>. I am committed to working hard and refining my skills every day to build a solid foundation for my professional future.
             </div>
+            <div class="btn-group">
+                <a href="mailto:your-email@gmail.com" class="btn">Connect with me</a>
+                <a href="CV_NguyenMaiHanhVy.pdf" class="btn btn-outline" download><i class="fas fa-download"></i> Download CV</a>
+            </div>
         </div>
     </section>
 
     <section id="skills">
         <h2 class="section-title">My Expertise & Tools</h2>
+        
         <h3 class="category">Marketing & Soft Skills</h3>
         <div class="skills-grid">
             <div class="skill-item"><i class="fas fa-search"></i>Research</div>
@@ -62,11 +89,12 @@
             <div class="skill-item"><i class="fas fa-users"></i>Teamwork</div>
             <div class="skill-item"><i class="fas fa-robot"></i>AI for Work</div>
         </div>
+
         <h3 class="category">Software & Design Tools</h3>
         <div class="skills-grid">
-            <div class="skill-item"><img src="image_2.png" alt="Word Logo">Word</div>
-                <div class="skill-item"><img src="image_3.png" alt="Excel Logo">Excel</div>
-                <div class="skill-item"><img src="image_4.png" alt="Power Point Logo">Power Point</div>
+            <d<div class="skill-item"><img src="image_2.png" alt="Word Logo">Word</div>
+            <div class="skill-item"><img src="image_3.png" alt="Excel Logo">Excel</div>
+            <div class="skill-item"><img src="image_4.png" alt="Power Point Logo">Power Point</div>
             <div class="skill-item"><img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg" alt="PS">Photoshop</div>
             <div class="skill-item"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Illustrator_CC_icon.svg" alt="AI">Illustrator</div>
             <div class="skill-item"><img src="https://upload.wikimedia.org/wikipedia/commons/4/40/Adobe_Premiere_Pro_CC_icon.svg" alt="PR">Premiere</div>
@@ -74,5 +102,11 @@
             <div class="skill-item"><img src="image_9.png" alt="CapCut Logo">CapCut</div>
         </div>
     </section>
+
+    <footer id="contact" style="text-align: center; padding: 4rem; color: var(--slate-400); font-size: 0.8rem; border-top: 1px solid #334155;">
+        <p>Liên hệ: your-email@gmail.com</p>
+        <p>© 2026 NGUYEN MAI HANH VY. ALL RIGHTS RESERVED.</p>
+    </footer>
+
 </body>
 </html>
