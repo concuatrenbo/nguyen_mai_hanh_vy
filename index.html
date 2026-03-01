@@ -35,18 +35,19 @@
         .btn-outline { background: transparent; color: var(--accent-color); }
         .btn:hover { transform: scale(1.05); opacity: 0.9; box-shadow: 0 0 20px rgba(56, 189, 248, 0.4); }
 
-        /* Skills */
-        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1.2rem; }
+        /* Skills - BỐ CỤC ĐÃ ĐƯỢC ĐỒNG NHẤT */
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.2rem; }
         .skill-item { background: var(--secondary-bg); padding: 1.5rem; border-radius: 12px; text-align: center; border: 1px solid #334155; transition: 0.4s; height: 160px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
         .skill-item:hover { border-color: var(--accent-color); transform: translateY(-8px); }
         .skill-item img { width: 50px; height: 50px; object-fit: contain; margin-bottom: 12px; }
-        .skill-item i { font-size: 2rem; color: var(--accent-color); margin-bottom: 12px; }
-        h3.category { color: var(--slate-400); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin: 2rem 0 1rem; }
+        .skill-item i { font-size: 2.2rem; color: var(--accent-color); margin-bottom: 12px; }
+        h3.category { color: var(--slate-400); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin: 2.5rem 0 1.2rem; }
 
         @media (max-width: 992px) { 
             .hero { flex-direction: column; text-align: center; padding-top: 100px; } 
             .intro-text { border-left: none; border-top: 3px solid var(--accent-color); padding-top: 20px; }
             .btn-group { justify-content: center; }
+            .skills-grid { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
         }
     </style>
 </head>
@@ -62,7 +63,7 @@
 
     <section id="about" class="hero">
         <div class="hero-image">
-            <img src="avatar.jpg" alt="Avatar" onerror="this.src='https://ui-avatars.com/api/?name=Hanh+Vy&background=38bdf8&color=fff&size=300'">
+            <img src="avatar.JPG" alt="Avatar" onerror="this.src='https://ui-avatars.com/api/?name=Hanh+Vy&background=38bdf8&color=fff&size=300'">
         </div>
         <div class="hero-content">
             <span style="color: var(--accent-color); font-weight: 600; letter-spacing: 3px;">HELLO, I AM</span>
@@ -89,17 +90,17 @@
             <div class="skill-item"><i class="fas fa-users"></i>Teamwork</div>
             <div class="skill-item"><i class="fas fa-robot"></i>AI for Work</div>
         </div>
-        <div class="skills-container">
-        <h3 class="category">Software & Design Tools</h3>
+
+        <h3 class="category">Software & Design Tools (ĐÃ ĐỒNG NHẤT BỐ CỤC)</h3>
         <div class="skills-grid">
-            <d<div class="skill-item"><img src="image_2.png" alt="Word Logo">Word</div>
-            <div class="skill-item"><img src="image_3.png" alt="Excel Logo">Excel</div>
-            <div class="skill-item"><img src="image_4.png" alt="Power Point Logo">Power Point</div>
+            <div class="skill-item"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Microsoft_Office_Word_%282019%E2%80%93present%29.svg" alt="Word">Word</div>
+            <div class="skill-item"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Microsoft_Office_Excel_%282019%E2%80%93present%29.svg" alt="Excel">Excel</div>
+            <div class="skill-item"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0d/Microsoft_Office_PowerPoint_%282019%E2%80%93present%29.svg" alt="PP">Power Point</div>
             <div class="skill-item"><img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg" alt="PS">Photoshop</div>
             <div class="skill-item"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Illustrator_CC_icon.svg" alt="AI">Illustrator</div>
             <div class="skill-item"><img src="https://upload.wikimedia.org/wikipedia/commons/4/40/Adobe_Premiere_Pro_CC_icon.svg" alt="PR">Premiere</div>
-            <div class="skill-item"><img src="image_8.png" alt="Canva Logo">Canva</div>
-            <div class="skill-item"><img src="image_9.png" alt="CapCut Logo">CapCut</div>
+            <div class="skill-item"><img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Canva_icon_2021.svg" alt="Canva">Canva</div>
+            <div class="skill-item"><img src="https://static.cdnlogo.com/logos/c/74/capcut.svg" alt="CapCut">CapCut</div>
         </div>
     </section>
 
