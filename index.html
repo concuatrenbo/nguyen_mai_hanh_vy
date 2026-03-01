@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,37 +21,40 @@
         .section-title { font-size: 2rem; margin-bottom: 3rem; position: relative; display: flex; align-items: center; width: 100%; white-space: nowrap; }
         .section-title::after { content: ''; display: block; height: 1px; width: 300px; background: #334155; margin-left: 20px; }
         
-        /* Hero Section */
+        /* Hero Section with Avatar */
         .hero { min-height: 100vh; display: flex; align-items: center; gap: 4rem; }
-        .hero-image { width: 280px; height: 280px; border-radius: 50%; border: 4px solid var(--accent-color); overflow: hidden; flex-shrink: 0; background: #1e293b; }
+        .hero-image { width: 300px; height: 300px; border-radius: 50%; border: 4px solid var(--accent-color); overflow: hidden; flex-shrink: 0; box-shadow: 0 0 30px rgba(56, 189, 248, 0.2); }
         .hero-image img { width: 100%; height: 100%; object-fit: cover; }
         .hero-content { flex: 1; }
         .hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); margin: 0; line-height: 1.1; color: var(--text-color); }
         .intro-text { font-size: 1.1rem; color: var(--slate-400); max-width: 600px; margin: 1.5rem 0; border-left: 3px solid var(--accent-color); padding-left: 20px; }
 
-        /* Experience/Education Section (Brittany Chiang Style) */
+        /* Experience/Education Tabs */
         .jobs-container { display: flex; gap: 30px; margin-top: 2rem; }
         .tab-list { border-left: 2px solid #334155; list-style: none; padding: 0; margin: 0; min-width: 200px; }
         .tab-item { padding: 12px 20px; cursor: pointer; color: var(--slate-400); font-size: 0.9rem; transition: 0.3s; }
         .tab-item.active { color: var(--accent-color); background: rgba(56, 189, 248, 0.1); border-left: 2px solid var(--accent-color); margin-left: -2px; }
-        .job-content { display: block; }
         .job-content h3 { margin: 0; font-size: 1.3rem; color: var(--text-color); }
         .job-content .company { color: var(--accent-color); }
-        .job-content .date { font-family: 'Inter', sans-serif; font-size: 0.85rem; color: var(--slate-400); margin: 5px 0 20px; }
+        .job-content .date { font-size: 0.85rem; color: var(--slate-400); margin: 5px 0 20px; }
         .job-content ul { list-style: none; padding: 0; }
         .job-content ul li { position: relative; padding-left: 25px; margin-bottom: 10px; color: var(--slate-400); font-size: 0.95rem; }
         .job-content ul li::before { content: '▹'; position: absolute; left: 0; color: var(--accent-color); }
 
-        /* Skills Grid */
-        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; }
-        .skill-item { background: var(--secondary-bg); padding: 1.2rem; border-radius: 8px; text-align: center; border: 1px solid #334155; transition: 0.3s; height: 140px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-        .skill-item:hover { border-color: var(--accent-color); transform: translateY(-5px); }
-        .skill-item img { width: 40px; height: 40px; margin-bottom: 12px; }
-        .skill-item i { font-size: 1.8rem; color: var(--accent-color); margin-bottom: 12px; }
-        h3.category { color: var(--slate-400); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin: 2rem 0 1rem; }
+        /* Skills Layout Uniformity */
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.2rem; }
+        .skill-item { background: var(--secondary-bg); padding: 1.5rem; border-radius: 12px; text-align: center; border: 1px solid #334155; transition: 0.4s; height: 160px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .skill-item:hover { border-color: var(--accent-color); transform: translateY(-8px); }
+        .skill-item img { width: 45px; height: 45px; object-fit: contain; margin-bottom: 12px; }
+        .skill-item i { font-size: 2.2rem; color: var(--accent-color); margin-bottom: 12px; }
+        h3.category { color: var(--slate-400); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin: 2.5rem 0 1.2rem; }
 
-        .btn { display: inline-block; background: transparent; border: 1px solid var(--accent-color); color: var(--accent-color); padding: 0.75rem 1.5rem; border-radius: 4px; text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
+        /* Buttons & Social */
+        .btn-group { display: flex; gap: 15px; margin-top: 2rem; }
+        .btn { display: inline-block; background: transparent; border: 1px solid var(--accent-color); color: var(--accent-color); padding: 0.8rem 1.8rem; border-radius: 4px; text-decoration: none; font-size: 0.9rem; transition: 0.3s; font-weight: 600; }
+        .btn-filled { background: var(--accent-color); color: var(--bg-color); }
         .btn:hover { background: rgba(56, 189, 248, 0.1); }
+        .btn-filled:hover { opacity: 0.9; background: var(--accent-color); }
 
         @media (max-width: 992px) { 
             section { padding: 80px 5%; }
@@ -59,6 +62,7 @@
             .jobs-container { flex-direction: column; }
             .tab-list { display: flex; overflow-x: auto; border-left: none; border-bottom: 2px solid #334155; }
             .tab-item.active { border-left: none; border-bottom: 2px solid var(--accent-color); margin-left: 0; margin-bottom: -2px; }
+            .btn-group { justify-content: center; }
         }
     </style>
 </head>
@@ -78,12 +82,15 @@
             <img src="avatar.JPG" alt="Avatar" onerror="this.src='https://ui-avatars.com/api/?name=Hanh+Vy&background=38bdf8&color=fff&size=300'">
         </div>
         <div class="hero-content">
-            <span style="color: var(--accent-color); font-weight: 400; font-family: monospace;">Hi, my name is</span>
+            <span style="color: var(--accent-color); font-family: monospace;">Hi, my name is</span>
             <h1 style="margin-top: 10px;">Nguyen Mai Hanh Vy.</h1>
             <div class="intro-text">
                 A recent <strong>Marketing Communications</strong> graduate. I focus my energy on being a <strong>dedicated learner</strong> and a <strong>disciplined listener</strong>. I am committed to working hard and refining my skills every day.
             </div>
-            <a href="https://drive.google.com/drive/folders/1--cnJpvD1aERClkD5jV259e1Td-h_BZb" target="_blank" class="btn">View My Certificates</a>
+            <div class="btn-group">
+                <a href="mailto:nmhv29@gmail.com" class="btn btn-filled">Connect with me</a>
+                <a href="CV_NguyenMaiHanhVy.pdf" class="btn" download>Download CV</a>
+            </div>
         </div>
     </section>
 
@@ -91,22 +98,22 @@
         <h2 class="section-title">01. Where I’ve Studied</h2>
         <div class="jobs-container">
             <div class="tab-list">
-                <div class="tab-item active">Education</div>
-                <div class="tab-item">Certifications</div>
+                <div class="tab-item active" onclick="showTab('edu')">Education</div>
+                <div class="tab-item" onclick="showTab('cert')">Certifications</div>
             </div>
             <div class="job-content">
-                <div id="edu-details">
-                    <h3>Truyền thông Marketing <span class="company">@ Đại học Tài chính - Marketing</span></h3>
+                <div id="edu-content">
+                    <h3>Marketing Communications <span class="company">@ University of Finance - Marketing</span></h3>
                     <p class="date">2020 - 2024</p>
                     <ul>
-                        <li>Tốt nghiệp loại Giỏi chuyên ngành Marketing Communications.</li>
-                        <li>Nắm vững kiến thức về nghiên cứu thị trường, lập kế hoạch nội dung và chiến lược truyền thông đa kênh.</li>
-                        <li>Tích cực tham gia các dự án thực tế trong quá trình học tập.</li>
+                        <li>Graduated with Honors (Good/Distinction grade) in Marketing Communications.</li>
+                        <li>Proficient in market research, content planning, and multi-channel communication strategies.</li>
+                        <li>Actively participated in practical marketing projects during academic years.</li>
                     </ul>
                 </div>
-                <div id="cert-details" style="display: none; margin-top: 10px;">
-                    <h3>Chứng chỉ chuyên môn</h3>
-                    <p class="date">Các năm 2021 - 2024</p>
+                <div id="cert-content" style="display: none;">
+                    <h3>Professional Certifications</h3>
+                    <p class="date">2021 - 2024</p>
                     <ul>
                         <li>800 TOEIC | 2024</li>
                         <li>MOS Excel 2016 | 2024</li>
@@ -114,7 +121,7 @@
                         <li>The Fundamentals of Digital Marketing | 2021</li>
                         <li>Digital Body Language | 2021</li>
                     </ul>
-                    <a href="https://drive.google.com/drive/folders/1--cnJpvD1aERClkD5jV259e1Td-h_BZb" target="_blank" class="btn" style="margin-top: 15px;">Xem kho chứng chỉ →</a>
+                    <a href="https://drive.google.com/drive/folders/1--cnJpvD1aERClkD5jV259e1Td-h_BZb" target="_blank" class="btn" style="margin-top: 10px;">View Folder →</a>
                 </div>
             </div>
         </div>
@@ -123,7 +130,7 @@
     <section id="skills">
         <h2 class="section-title">02. My Skills & Tools</h2>
         <h3 class="category">Marketing & Soft Skills</h3>
-        <div class="skills-grid">
+        <div class="skills-grid" style="margin-bottom: 3rem;">
             <div class="skill-item"><i class="fas fa-search"></i>Research</div>
             <div class="skill-item"><i class="fas fa-calendar-alt"></i>Content Planning</div>
             <div class="skill-item"><i class="fas fa-lightbulb"></i>Content Ideation</div>
@@ -133,12 +140,12 @@
         </div>
         <h3 class="category">Software & Design Tools</h3>
         <div class="skills-grid">
-          <div class="skill-item"><img src="image_2.png" alt="Word Logo">Word</div>
+           <div class="skill-item"><img src="image_2.png" alt="Word Logo">Word</div>
             <div class="skill-item"><img src="image_3.png" alt="Excel Logo">Excel</div>
             <div class="skill-item"><img src="image_4.png" alt="Power Point Logo">Power Point</div>
             <div class="skill-item"><img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg" alt="PS">Photoshop</div>
             <div class="skill-item"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Illustrator_CC_icon.svg" alt="AI">Illustrator</div>
-            <div class="skill-item"><img src="https://upload.wikimedia.org/wikipedia/commons/4/40/Adobe_Premiere_Pro_CC_icon.svg" alt="PR">Premiere</div>
+            <div class="skill-item"><img src="https://upload.wikimedia.org/wikipedia/commons/4/40/Adobe_Premiere_Pro_CC_icon.svg" alt="PR">Premiere Pro</div>
             <div class="skill-item"><img src="image_8.png" alt="Canva Logo">Canva</div>
             <div class="skill-item"><img src="image_9.png" alt="CapCut Logo">CapCut</div>
         </div>
@@ -146,39 +153,35 @@
 
     <section id="contact" style="text-align: center; max-width: 600px; margin: 0 auto;">
         <h2 class="section-title" style="justify-content: center;">03. Get In Touch</h2>
-        <p style="color: var(--slate-400);">Tôi hiện đang tìm kiếm cơ hội nghề nghiệp mới trong lĩnh vực Marketing Communications. Hãy kết nối với tôi qua các kênh dưới đây:</p>
-        
-        <div style="margin: 2rem 0; line-height: 2;">
-            <p><i class="fas fa-phone" style="color: var(--accent-color); margin-right: 10px;"></i> 0986952436</p>
+        <div style="margin: 2rem 0; color: var(--slate-400); line-height: 2;">
+            <p><i class="fas fa-phone" style="color: var(--accent-color); margin-right: 10px;"></i> (+84) 986 952 436</p>
             <p><i class="fas fa-envelope" style="color: var(--accent-color); margin-right: 10px;"></i> nmhv29@gmail.com</p>
-            <p><i class="fab fa-facebook" style="color: var(--accent-color); margin-right: 10px;"></i> <a href="https://www.facebook.com/concuatrenbo" target="_blank" style="color: inherit; text-decoration: none;">Nguyễn Mai Hanh Vy</a></p>
+            <p><i class="fab fa-facebook" style="color: var(--accent-color); margin-right: 10px;"></i> <a href="https://www.facebook.com/concuatrenbo" target="_blank" style="color: inherit; text-decoration: none;">Nguyen Mai Hanh Vy</a></p>
         </div>
-        
-        <a href="mailto:nmhv29@gmail.com" class="btn" style="padding: 1.25rem 2.5rem; font-size: 1rem;">Say Hello</a>
+        <a href="mailto:nmhv29@gmail.com" class="btn btn-filled" style="padding: 1.25rem 2.5rem;">Say Hello</a>
     </section>
 
-    <footer style="text-align: center; padding: 3rem; color: var(--slate-400); font-family: monospace; font-size: 0.8rem;">
-        <p>Built by Nguyen Mai Hanh Vy © 2026</p>
+    <footer style="text-align: center; padding: 3rem; color: var(--slate-400); font-size: 0.8rem; font-family: monospace;">
+        <p>© 2026 NGUYEN MAI HANH VY. ALL RIGHTS RESERVED.</p>
     </footer>
 
     <script>
-        const tabs = document.querySelectorAll('.tab-item');
-        const eduDetails = document.getElementById('edu-details');
-        const certDetails = document.getElementById('cert-details');
-
-        tabs.forEach((tab, index) => {
-            tab.addEventListener('click', () => {
-                tabs.forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
-                if (index === 0) {
-                    eduDetails.style.display = 'block';
-                    certDetails.style.display = 'none';
-                } else {
-                    eduDetails.style.display = 'none';
-                    certDetails.style.display = 'block';
-                }
-            });
-        });
+        function showTab(type) {
+            const tabs = document.querySelectorAll('.tab-item');
+            const edu = document.getElementById('edu-content');
+            const cert = document.getElementById('cert-content');
+            
+            tabs.forEach(t => t.classList.remove('active'));
+            if(type === 'edu') {
+                tabs[0].classList.add('active');
+                edu.style.display = 'block';
+                cert.style.display = 'none';
+            } else {
+                tabs[1].classList.add('active');
+                edu.style.display = 'none';
+                cert.style.display = 'block';
+            }
+        }
     </script>
 </body>
 </html>
