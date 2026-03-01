@@ -28,35 +28,27 @@
         .section-title { font-size: 2.5rem; margin-bottom: 3rem; position: relative; display: inline-block; }
         .section-title::after { content: ''; position: absolute; left: 0; bottom: -10px; width: 60px; height: 4px; background: var(--accent-color); }
 
-        /* HERO SECTION CẢI TIẾN VỚI ẢNH ĐẠI DIỆN */
+        /* Hero Section */
         .hero { min-height: 100vh; display: flex; align-items: center; gap: 4rem; }
-        .hero-image { width: 300px; height: 300px; border-radius: 50%; border: 4px solid var(--accent-color); overflow: hidden; flex-shrink: 0; box-shadow: 0 0 30px rgba(56, 189, 248, 0.2); }
+        .hero-image { width: 280px; height: 280px; border-radius: 50%; border: 4px solid var(--accent-color); overflow: hidden; flex-shrink: 0; background: #1e293b; display: flex; align-items: center; justify-content: center; }
         .hero-image img { width: 100%; height: 100%; object-fit: cover; }
         .hero-content { flex: 1; }
         .hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); margin: 0; line-height: 1.1; color: var(--text-color); }
-        .intro-text { font-size: 1.2rem; line-height: 1.8; color: var(--slate-400); max-width: 700px; margin: 1.5rem 0; border-left: 3px solid var(--accent-color); padding-left: 20px; }
+        .intro-text { font-size: 1.15rem; line-height: 1.8; color: var(--slate-400); max-width: 700px; margin: 1.5rem 0; border-left: 3px solid var(--accent-color); padding-left: 20px; }
 
-        /* SKILLS SECTION */
-        .skills-container { margin-bottom: 3rem; }
-        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1.2rem; }
-        .skill-item { background: var(--secondary-bg); padding: 1.2rem; border-radius: 12px; text-align: center; border: 1px solid #334155; transition: 0.4s; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 140px; }
-        .skill-item:hover { border-color: var(--accent-color); transform: translateY(-8px); box-shadow: 0 10px 30px -15px rgba(56, 189, 248, 0.3); }
-        .skill-item i { font-size: 2rem; color: var(--accent-color); margin-bottom: 10px; }
-        .skill-item img { width: 45px; height: 45px; object-fit: contain; margin-bottom: 10px; }
-        h3.skill-category { color: var(--slate-400); font-size: 1rem; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 1px; }
+        /* Skills Grid */
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1.2rem; margin-top: 1.5rem; }
+        .skill-item { background: var(--secondary-bg); padding: 1.5rem; border-radius: 12px; text-align: center; border: 1px solid #334155; transition: 0.4s; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .skill-item:hover { border-color: var(--accent-color); transform: translateY(-8px); }
+        .skill-item img { width: 50px; height: 50px; object-fit: contain; margin-bottom: 12px; }
+        .skill-item i { font-size: 2rem; color: var(--accent-color); margin-bottom: 12px; }
+        h3.category { color: var(--slate-400); font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; margin: 2rem 0 1rem; }
 
-        /* TIMELINE & CONTACT */
-        .timeline { border-left: 2px solid #334155; padding-left: 2.5rem; position: relative; }
-        .timeline-item { margin-bottom: 3rem; position: relative; }
-        .timeline-item::before { content: ''; position: absolute; left: -3.05rem; top: 5px; width: 14px; height: 14px; border-radius: 50%; background: var(--accent-color); border: 4px solid var(--bg-color); }
-        .btn { display: inline-block; background: var(--accent-color); color: #0f172a; padding: 0.8rem 2rem; border-radius: 50px; text-decoration: none; font-weight: 800; transition: 0.3s; margin-top: 1rem; }
-        .btn-outline { background: transparent; border: 2px solid var(--accent-color); color: var(--accent-color); margin-left: 10px; }
-        .contact-box { background: var(--secondary-bg); padding: 3rem; border-radius: 20px; text-align: center; }
-
+        .btn { display: inline-block; background: var(--accent-color); color: #0f172a; padding: 0.8rem 2rem; border-radius: 50px; text-decoration: none; font-weight: 800; transition: 0.3s; }
+        
         @media (max-width: 992px) {
-            .hero { flex-direction: column; text-align: center; gap: 2rem; padding-top: 150px; }
-            .hero-content { display: flex; flex-direction: column; align-items: center; }
-            .intro-text { border-left: none; border-top: 3px solid var(--accent-color); padding: 20px 0 0 0; }
+            .hero { flex-direction: column; text-align: center; padding-top: 100px; }
+            .intro-text { border-left: none; border-top: 3px solid var(--accent-color); padding: 20px 0 0; }
         }
     </style>
 </head>
@@ -67,14 +59,13 @@
         <ul>
             <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
-            <li><a href="#experience">Experience</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
     <section id="about" class="hero">
         <div class="hero-image">
-            <img src="avatar.jpg" alt="Nguyen Mai Hanh Vy">
+            <img src="https://ui-avatars.com/api/?name=Hanh+Vy&background=38bdf8&color=fff&size=300" alt="Nguyen Mai Hanh Vy">
         </div>
         <div class="hero-content">
             <span style="color: var(--accent-color); font-weight: 600; letter-spacing: 3px;">HELLO, I AM</span>
@@ -84,50 +75,39 @@
                 I focus my energy on being a <strong>dedicated learner</strong> and a <strong>disciplined listener</strong>. 
                 I am committed to working hard and refining my skills every day to build a solid foundation for my professional future.
             </div>
-            <div>
-                <a href="#contact" class="btn">Connect with me</a>
-                <a href="CV_NguyenMaiHanhVy.pdf" class="btn btn-outline">Download CV</a>
-            </div>
+            <a href="mailto:your-email@gmail.com" class="btn">Kết nối với tôi</a>
         </div>
     </section>
 
     <section id="skills">
         <h2 class="section-title">My Expertise & Tools</h2>
         
-        <div class="skills-container">
-            <h3 class="skill-category">Marketing & Soft Skills</h3>
-            <div class="skills-grid">
-                <div class="skill-item"><i class="fas fa-search"></i>Research</div>
-                <div class="skill-item"><i class="fas fa-calendar-alt"></i>Content Planning</div>
-                <div class="skill-item"><i class="fas fa-lightbulb"></i>Content Ideation</div>
-                <div class="skill-item"><i class="fas fa-clock"></i>Time Management</div>
-                <div class="skill-item"><i class="fas fa-users"></i>Teamwork</div>
-                <div class="skill-item"><i class="fas fa-robot"></i>AI for Work</div>
-            </div>
+        <h3 class="category">Marketing & Soft Skills</h3>
+        <div class="skills-grid">
+            <div class="skill-item"><i class="fas fa-search"></i>Research</div>
+            <div class="skill-item"><i class="fas fa-calendar-alt"></i>Content Planning</div>
+            <div class="skill-item"><i class="fas fa-lightbulb"></i>Content Ideation</div>
+            <div class="skill-item"><i class="fas fa-clock"></i>Time Management</div>
+            <div class="skill-item"><i class="fas fa-users"></i>Teamwork</div>
+            <div class="skill-item"><i class="fas fa-robot"></i>AI for Work</div>
         </div>
 
-        <div class="skills-container">
-            <h3 class="skill-category">Software & Design Tools</h3>
-            <div class="skills-grid">
-                <div class="skill-item"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Microsoft_Office_Word_%282019%E2%80%93present%29.svg" alt="Word">Word</div>
-                <div class="skill-item"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Microsoft_Office_Excel_%282019%E2%80%93present%29.svg" alt="Excel">Excel</div>
-                <div class="skill-item"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0d/Microsoft_Office_PowerPoint_%282019%E2%80%93present%29.svg" alt="PowerPoint">Power Point</div>
-                <div class="skill-item"><img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg" alt="PS">Photoshop</div>
-                <div class="skill-item"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Illustrator_CC_icon.svg" alt="AI">Illustrator</div>
-                <div class="skill-item"><img src="https://upload.wikimedia.org/wikipedia/commons/4/40/Adobe_Premiere_Pro_CC_icon.svg" alt="PR">Premiere</div>
-                <div class="skill-item"><img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Canva_icon_2021.svg" alt="Canva">Canva</div>
-                <div class="skill-item"><img src="https://static.cdnlogo.com/logos/c/74/capcut.svg" alt="CapCut">CapCut</div>
-            </div>
+        <h3 class="category">Software & Design Tools</h3>
+        <div class="skills-grid">
+            <div class="skill-item"><img src="https://cdn.worldvectorlogo.com/logos/microsoft-word-2013-logo.svg" alt="Word">Word</div>
+            <div class="skill-item"><img src="https://cdn.worldvectorlogo.com/logos/microsoft-excel-2013-logo.svg" alt="Excel">Excel</div>
+            <div class="skill-item"><img src="https://cdn.worldvectorlogo.com/logos/microsoft-powerpoint-2013-logo.svg" alt="PP">Power Point</div>
+            <div class="skill-item"><img src="https://www.vectorlogo.zone/logos/adobe_photoshop/adobe_photoshop-icon.svg" alt="PS">Photoshop</div>
+            <div class="skill-item"><img src="https://www.vectorlogo.zone/logos/adobe_illustrator/adobe_illustrator-icon.svg" alt="AI">Illustrator</div>
+            <div class="skill-item"><img src="https://www.vectorlogo.zone/logos/adobe_premiere/adobe_premiere-icon.svg" alt="PR">Premiere</div>
+            <div class="skill-item"><img src="https://www.vectorlogo.zone/logos/canva/canva-icon.svg" alt="Canva">Canva</div>
+            <div class="skill-item"><img src="https://static.cdnlogo.com/logos/c/74/capcut.svg" alt="CapCut">CapCut</div>
         </div>
     </section>
 
-    <section id="contact">
-        <div class="contact-box">
-            <h2>Let's work together!</h2>
-            <p>your-email@gmail.com</p>
-            <a href="mailto:your-email@gmail.com" class="btn">Send Email</a>
-        </div>
-    </section>
+    <footer style="text-align: center; padding: 4rem; color: var(--slate-400); font-size: 0.8rem; border-top: 1px solid #334155;">
+        © 2026 NGUYEN MAI HANH VY.
+    </footer>
 
 </body>
 </html>
