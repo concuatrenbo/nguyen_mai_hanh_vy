@@ -210,7 +210,7 @@
         </div>
     </section>
 
-    <section id="experience" style="padding: 100px 15%;">
+    <section id="experience" class="custom-container">
     <h2 class="section-title">Kinh nghiệm</h2>
     
     <div class="ryan-timeline-dark">
@@ -270,13 +270,20 @@
 </section>
 
 <style>
+    /* Điều chỉnh Section để giãn đều và căn giữa giống website mẫu */
+    .custom-container {
+        padding: 100px 2rem 80px !important; /* Sử dụng padding rem để linh hoạt hơn % */
+        max-width: 1000px; /* Giới hạn độ rộng vàng */
+        margin: 0 auto; /* Căn giữa tự động */
+    }
+
     /* Timeline Container */
     .ryan-timeline-dark {
         position: relative;
         padding-left: 50px;
     }
 
-    /* Trục dọc màu Slate 700 (giống viền các card công cụ) */
+    /* Trục dọc màu Slate 700 */
     .ryan-timeline-dark::before {
         content: '';
         position: absolute;
@@ -305,7 +312,7 @@
         box-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
     }
 
-    /* Card định dạng giống mục Công cụ (Nền tối, viền Slate) */
+    /* Card định dạng giống mục Công cụ */
     .timeline-card-dark {
         background: var(--secondary-bg);
         border: 1px solid #334155;
@@ -347,7 +354,7 @@
         font-family: monospace;
     }
 
-    /* List mô tả */
+    /* List mô tả công việc */
     .job-desc-list {
         list-style: none;
         padding: 0;
@@ -370,6 +377,7 @@
     }
 
     @media (max-width: 768px) {
+        .custom-container { padding: 80px 1.5rem !important; }
         .card-header { flex-direction: column; }
         .job-date { margin-top: 10px; }
     }
