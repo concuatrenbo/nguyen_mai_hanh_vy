@@ -366,7 +366,7 @@
         .job-date { margin-top: 10px; }
     }
 </style>
-<section id="performance" style="padding: 100px 10%;">
+<section id="performance" style="padding: 80px 15%;">
     <h2 class="section-title">Hiệu quả công việc</h2>
 
     <div class="performance-container">
@@ -375,118 +375,87 @@
             <h3 class="company-label">MCV Network</h3>
             
             <div class="perf-card-large">
-                <span class="perf-tag">Facebook Analytics - WeTunes</span>
+                <div class="card-header-flex">
+                    <i class="fab fa-facebook" style="color: #1877F2; font-size: 1.5rem;"></i>
+                    <span class="perf-tag" style="margin-bottom: 0; margin-left: 10px;">WeTunes</span>
+                </div>
+
                 <div class="perf-images-large">
                     <div class="img-wrapper">
-                        <img src="mcv_fb_stats_1.jpg" alt="Facebook Stats">
-                        <span class="img-hint">Di chuột để phóng to số liệu</span>
+                        <img src="WT1.png" alt="Analytics WeTunes 1">
+                        <span class="img-hint">Di chuột để soi số liệu</span>
                     </div>
                     <div class="img-wrapper">
-                        <img src="mcv_fb_stats_2.jpg" alt="Facebook Stats">
+                        <img src="WT2.png" alt="Analytics WeTunes 2">
+                        <span class="img-hint">Di chuột để soi số liệu</span>
                     </div>
                 </div>
+
                 <div class="perf-content">
-                    <p>▹ Tăng trưởng lượt tiếp cận và tương tác thực tế qua các chiến dịch nội dung[cite: 103, 104].</p>
-                </div>
-            </div>
-
-            <div class="performance-grid">
-                <div class="perf-card">
-                    <span class="perf-tag">TikTok WeTunes</span>
-                    <div class="img-wrapper">
-                        <img src="mcv_tt_wt.jpg" style="aspect-ratio: 16/9;">
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-label">Lượt theo dõi:</span>
+                            <span class="stat-value">Tăng 63K followers</span>
+                            <small class="stat-time">(Tháng 7/2025 - 02/2026)</small>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Lượt xem:</span>
+                            <span class="stat-value">~60M views</span>
+                            <small class="stat-time">(Tháng 12/2025 - 02/2026)</small>
+                        </div>
+                    </div>
+                    
+                    <div class="main-topic" style="margin-top: 20px;">
+                        <p style="color: var(--text-color); font-weight: 600;">Nội dung chính:</p>
+                        <p style="color: var(--slate-400);">▹ Tin tức giải trí showbiz, best cut các chương trình giải trí.</p>
                     </div>
                 </div>
-                <div class="perf-card">
-                    <span class="perf-tag">TikTok Bài Gì Cũng Có</span>
-                    <div class="img-wrapper">
-                        <img src="mcv_tt_bgcc.jpg" style="aspect-ratio: 16/9;">
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <div class="performance-block">
-            <h3 class="company-label">HUMA Agency</h3>
-            <div class="perf-card-large">
-                <span class="perf-tag">Portfolio Thiết kế sáng tạo</span>
-                <div class="perf-images-grid-5">
-                    <img src="huma_1.jpg"><img src="huma_2.jpg"><img src="huma_3.jpg"><img src="huma_4.jpg"><img src="huma_5.jpg">
-                </div>
-            </div>
-        </div>
-
-        <div class="performance-block">
-            <h3 class="company-label">VDS</h3>
-            <div class="performance-grid">
-                <div class="perf-card">
-                    <span class="perf-tag">Photography & Poster</span>
+                <div class="content-examples" style="margin-top: 30px;">
+                    <p style="color: var(--accent-color); font-family: monospace; font-size: 0.8rem; margin-bottom: 15px;">CONTENT EXAMPLES:</p>
                     <div class="perf-images-3">
-                        <img src="vds_p1.jpg"><img src="vds_p2.jpg"><img src="vds_p3.jpg">
-                    </div>
-                </div>
-                <div class="perf-card">
-                    <span class="perf-tag">Video Analytics</span>
-                    <div class="img-wrapper">
-                        <img src="vds_video_stats.jpg" alt="Youtube Stats">
+                        <img src="wt_content_1.png" class="example-img">
+                        <img src="wt_content_2.png" class="example-img">
+                        <img src="wt_content_3.png" class="example-img">
                     </div>
                 </div>
             </div>
         </div>
-
-    </div>
+        
+        </div>
 </section>
 
 <style>
-    .performance-container { display: flex; flex-direction: column; gap: 80px; }
-    .company-label { color: var(--text-color); font-size: 1.8rem; margin-bottom: 30px; }
+    .card-header-flex { display: flex; align-items: center; margin-bottom: 20px; }
     
-    /* Khung card lớn để xem số liệu */
     .perf-card-large { 
         background: var(--secondary-bg); 
         border: 1px solid #334155; 
         border-radius: 16px; 
-        padding: 30px; 
-        margin-bottom: 20px;
+        padding: 35px; 
     }
 
-    .performance-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-    .perf-card { background: var(--secondary-bg); border: 1px solid #334155; border-radius: 16px; padding: 20px; }
-
-    /* Hiệu ứng Phóng to ảnh */
-    .img-wrapper { 
-        position: relative; 
-        overflow: hidden; 
-        border-radius: 8px; 
-        background: #000;
-        cursor: zoom-in;
-    }
-    .img-wrapper img { 
-        width: 100%; 
-        display: block; 
-        transition: transform 0.5s ease; 
-        object-fit: contain; /* Đảm bảo không bị mất thông tin ảnh */
-    }
-    .img-wrapper:hover img { transform: scale(1.5); } /* Phóng to 1.5 lần khi hover */
+    /* Hiệu ứng Zoom ảnh số liệu */
+    .img-wrapper { position: relative; overflow: hidden; border-radius: 8px; cursor: zoom-in; background: #000; }
+    .img-wrapper img { width: 100%; transition: transform 0.5s ease; }
+    .img-wrapper:hover img { transform: scale(1.6); }
     
-    .img-hint {
-        position: absolute; bottom: 10px; right: 10px;
-        background: rgba(0,0,0,0.6); color: #fff;
-        font-size: 0.7rem; padding: 4px 8px; border-radius: 4px;
-        pointer-events: none;
-    }
+    .img-hint { position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.7); color: #fff; font-size: 0.6rem; padding: 3px 7px; border-radius: 4px; pointer-events: none; }
 
-    /* Layout ảnh */
-    .perf-images-large { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-    .perf-images-grid-5 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; } /* HUMA: 3 trên 2 dưới */
-    .perf-images-3 { display: grid; grid-template-columns: 1fr; gap: 10px; }
+    /* Layout lưới ảnh */
+    .perf-images-large { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px; }
+    .perf-images-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .example-img { width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 6px; border: 1px solid #334155; }
 
-    .perf-tag { color: var(--accent-color); font-family: monospace; font-size: 0.9rem; margin-bottom: 20px; display: block; }
-    .perf-content { margin-top: 25px; border-top: 1px solid #334155; padding-top: 20px; color: var(--slate-400); }
+    /* Styling chỉ số */
+    .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+    .stat-label { display: block; color: var(--accent-color); font-size: 0.85rem; margin-bottom: 5px; }
+    .stat-value { display: block; color: var(--text-color); font-size: 1.4rem; font-weight: 800; }
+    .stat-time { color: var(--slate-400); font-size: 0.75rem; }
 
-    @media (max-width: 992px) {
-        .performance-grid, .perf-images-large { grid-template-columns: 1fr; }
-        .perf-images-grid-5 { grid-template-columns: 1fr 1fr; }
+    @media (max-width: 768px) {
+        .perf-images-large, .stats-grid, .perf-images-3 { grid-template-columns: 1fr; }
+        .perf-card-large { padding: 20px; }
     }
 </style>
 
