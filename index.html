@@ -205,83 +205,93 @@
     <section id="experience">
         <h2 class="section-title">Kinh nghiệm làm việc</h2>
         
-        <div class="project-grid">
-    <div class="project-item">
-        <div class="project-content">
-            <span class="project-overline">9/2024 - Hiện tại</span>
-            <h3 class="project-title">Project Management Executive @ MCV Network</h3>
-            <div class="project-description">
-                <ul class="experience-list">
-                    <li class="experience-row">
-                        <div class="row-text">
-                            <span class="arrow-icon">▹</span>
-                            Upload và bảo vệ bản quyền nội dung của đối tác trên Facebook.
-                        </div>
-                    </li>
+        <div class="project-item">
+    <div class="project-content">
+        <span class="project-overline">9/2024 - Hiện tại</span>
+        <h3 class="project-title">Project Management Executive @ MCV Network</h3>
+        
+        <div class="experience-container">
+            <ul class="experience-list">
+                <li class="experience-row">
+                    <div class="row-text">
+                        <span class="arrow-icon">▹</span>
+                        Upload và bảo vệ bản quyền nội dung của đối tác trên Facebook.
+                    </div>
+                    <div class="row-images-fixed">
+                        <img src="fb_1.jpg" alt="FB Rights 1">
+                        <img src="fb_2.jpg" alt="FB Rights 2">
+                    </div>
+                </li>
 
-                    <li class="experience-row">
-                        <div class="row-text">
-                            <span class="arrow-icon">▹</span>
-                            Release và hỗ trợ kỹ thuật liên quan đến bản quyền nhạc.
-                        </div>
-                        <div class="row-images-preview">
-                            <img src="music_1.jpg" alt="Music 1">
-                            <img src="music_2.jpg" alt="Music 2">
-                            <img src="music_3.jpg" alt="Music 3">
-                            <img src="music_4.jpg" alt="Music 4">
-                            <a href="https://drive.google.com/drive/folders/YOUR_LINK" target="_blank" class="btn-drive-mini">Drive →</a>
-                        </div>
-                    </li>
+                <li class="experience-row">
+                    <div class="row-text">
+                        <span class="arrow-icon">▹</span>
+                        Release và hỗ trợ kỹ thuật liên quan đến bản quyền nhạc.
+                    </div>
+                    <div class="row-images-fixed">
+                        <img src="music_1.jpg">
+                        <img src="music_2.jpg">
+                        <img src="music_3.jpg">
+                        <img src="music_4.jpg">
+                    </div>
+                </li>
 
-                    <li class="experience-row">
-                        <div class="row-text">
-                            <span class="arrow-icon">▹</span>
-                            Vận hành các kênh TikTok và Fanpage tin tức âm nhạc.
+                <li class="experience-row">
+                    <div class="row-text">
+                        <span class="arrow-icon">▹</span>
+                        Vận hành các kênh TikTok và Fanpage tin tức âm nhạc.
+                    </div>
+                    <div class="row-images-fixed">
+                        <div class="channel-preview">
+                            <img src="wt_logo.jpg" alt="WeTunes">
+                            <img src="bg_logo.jpg" alt="BGCC">
                         </div>
-                        <div class="row-images-preview">
-                            <div class="mini-label">WeTunes:</div>
-                            <img src="wt_1.jpg" alt="WT 1">
-                            <img src="wt_2.jpg" alt="WT 2">
-                            <div class="mini-label">BGCC:</div>
-                            <img src="bg_1.jpg" alt="BG 1">
-                            <div class="channel-links-group">
-                                <a href="LINK_FB" target="_blank" class="btn-drive-mini">FB</a>
-                                <a href="LINK_TT" target="_blank" class="btn-drive-mini">TT</a>
-                            </div>
+                        <div class="links-preview">
+                            <a href="#" class="btn-mini">Fanpage</a>
+                            <a href="#" class="btn-mini">TikTok</a>
                         </div>
-                    </li>
-                </ul>
-            </div>
-
-            <ul class="project-tech-list">
-                <li>Facebook Rights Manager</li>
-                <li>TikTok Management</li>
-                <li>Project Tracking</li>
+                    </div>
+                </li>
             </ul>
+
+            <div class="image-display-zone">
+                </div>
         </div>
+
+        <ul class="project-tech-list">
+            <li>Facebook Rights Manager</li>
+            <li>TikTok Management</li>
+            <li>Project Tracking</li>
+        </ul>
     </div>
 </div>
 
 <style>
-    /* Reset danh sách */
-    .experience-list { list-style: none; padding: 0; margin: 0; }
-
-    /* Hàng kinh nghiệm - Nơi kích hoạt hiệu ứng Hover */
-    .experience-row {
+    /* Bố cục chính chia 2 cột */
+    .experience-container {
         display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 12px 0;
+        gap: 40px;
         position: relative;
+        min-height: 300px;
+    }
+
+    .experience-list {
+        flex: 1; /* Cột chữ chiếm bên trái */
+        list-style: none;
+        padding: 0;
+    }
+
+    /* Từng hàng chữ */
+    .experience-row {
+        padding: 15px 0;
         border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        transition: 0.3s;
+        cursor: pointer;
     }
 
     .row-text {
         position: relative;
         padding-left: 25px;
         color: var(--slate-400);
-        flex: 1;
         transition: 0.3s;
     }
 
@@ -289,61 +299,71 @@
         position: absolute;
         left: 0;
         color: var(--accent-color);
-        transition: 0.3s;
     }
 
-    /* Khung chứa ảnh dẫn chứng - Trượt từ phải vào */
-    .row-images-preview {
+    /* Khung chứa ảnh - CỐ ĐỊNH Ở VÙNG ĐỎ */
+    .row-images-fixed {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 45%; /* Chiếm diện tích vùng bên phải */
+        height: 100%;
         display: flex;
-        align-items: center;
-        gap: 10px;
+        flex-wrap: wrap;
+        gap: 15px;
+        align-content: center;
+        justify-content: center;
+        
+        /* Hiệu ứng ẩn/hiện trượt */
         opacity: 0;
         visibility: hidden;
-        transform: translateX(50px); /* Bắt đầu từ bên phải 50px */
+        transform: translateX(30px);
         transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        pointer-events: none;
     }
 
-    .row-images-preview img {
-        width: 60px;
-        height: 60px;
-        border-radius: 4px;
-        object-fit: cover;
-        border: 1px solid var(--accent-color);
+    /* Khi Hover vào hàng nào, ảnh của hàng đó bay vào vùng bên phải */
+    .experience-row:hover .row-text {
+        color: var(--text-color);
+        padding-left: 35px; /* Đẩy nhẹ chữ sang phải khi hover */
     }
 
-    .mini-label { font-size: 0.7rem; color: var(--text-color); font-weight: 800; margin-right: -5px; }
-
-    .btn-drive-mini {
-        font-size: 0.7rem;
-        color: var(--accent-color);
-        border: 1px solid var(--accent-color);
-        padding: 4px 8px;
-        border-radius: 4px;
-        text-decoration: none;
-        white-space: nowrap;
-    }
-
-    .btn-drive-mini:hover { background: rgba(56, 189, 248, 0.1); }
-
-    /* HIỆU ỨNG HOVER */
-    .experience-row:hover .row-text { color: var(--text-color); }
-    .experience-row:hover .arrow-icon { transform: scale(1.3); }
-
-    .experience-row:hover .row-images-preview {
+    .experience-row:hover .row-images-fixed {
         opacity: 1;
         visibility: visible;
-        transform: translateX(0); /* Trượt về vị trí cũ */
+        transform: translateX(0);
+        pointer-events: auto;
     }
 
-    /* Tối ưu cho di động */
+    .row-images-fixed img {
+        width: 140px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 8px;
+        border: 2px solid var(--accent-color);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .btn-mini {
+        font-size: 0.75rem;
+        color: var(--accent-color);
+        border: 1px solid var(--accent-color);
+        padding: 5px 15px;
+        border-radius: 4px;
+        text-decoration: none;
+        margin: 5px;
+    }
+
+    /* Tối ưu cho Mobile (Xếp chồng lại như cũ) */
     @media (max-width: 992px) {
-        .experience-row { flex-direction: column; align-items: flex-start; }
-        .row-images-preview { 
-            transform: none; 
+        .experience-container { flex-direction: column; }
+        .row-images-fixed { 
+            position: relative; 
+            width: 100%; 
             opacity: 1; 
             visibility: visible; 
-            margin-top: 10px; 
-            flex-wrap: wrap; 
+            transform: none;
+            margin-top: 10px;
         }
     }
 </style>
@@ -413,3 +433,5 @@
     </footer>
 </body>
 </html>
+
+
