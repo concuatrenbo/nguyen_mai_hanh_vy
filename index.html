@@ -1249,44 +1249,74 @@
         </p>
     </div>
 
-    <div class="huma-gallery-container">
-        <div class="huma-gallery-item huma-item-glow" onclick="openLightbox('huma_1.png')">
-            <img src="huma_1.png" alt="Huma Design 1">
-        </div>
-        <div class="huma-gallery-item huma-item-glow" onclick="openLightbox('huma_2.png')">
-            <img src="huma_2.png" alt="Huma Design 2">
-        </div>
-        <div class="huma-gallery-item huma-item-glow" onclick="openLightbox('huma_3.png')">
-            <img src="huma_3.png" alt="Huma Design 3">
-        </div>
-        <div class="huma-gallery-item huma-item-glow" onclick="openLightbox('huma_4.png')">
-            <img src="huma_4.png" alt="Huma Design 4">
-        </div>
-        <div class="huma-gallery-item huma-item-glow" onclick="openLightbox('huma_5.png')">
-            <img src="huma_5.png" alt="Huma Design 5">
-        </div>
-        <div class="huma-gallery-item huma-item-glow" onclick="openLightbox('huma_6.png')">
-            <img src="huma_6.png" alt="Huma Design 6">
-        </div>
-        <div class="huma-gallery-item huma-item-glow" onclick="openLightbox('huma_7.png')">
-            <img src="huma_7.png" alt="Huma Design 7">
-        </div>
-        <div class="huma-gallery-item huma-item-glow" onclick="openLightbox('huma_8.png')">
-            <img src="huma_8.png" alt="Huma Design 8">
-        </div>
-        <div class="huma-gallery-item huma-item-glow" onclick="openLightbox('huma_9.png')">
-            <img src="huma_9.png" alt="Huma Design 9">
-        </div>
-        <div class="huma-gallery-item huma-item-glow" onclick="openLightbox('huma_10.png')">
-            <img src="huma_10.png" alt="Huma Design 10">
-        </div>
-        
-        <div class="huma-gallery-item huma-item-glow" onclick="openLightbox('huma_1.png')"><img src="huma_1.png"></div>
-        <div class="huma-gallery-item huma-item-glow" onclick="openLightbox('huma_2.png')"><img src="huma_2.png"></div>
-        <div class="huma-gallery-item huma-item-glow" onclick="openLightbox('huma_3.png')"><img src="huma_3.png"></div>
-        <div class="huma-gallery-item huma-item-glow" onclick="openLightbox('huma_4.png')"><img src="huma_4.png"></div>
-        <div class="huma-gallery-item huma-item-glow" onclick="openLightbox('huma_5.png')"><img src="huma_5.png"></div>
+    <style>
+    /* Phần điều chỉnh bố cục và kích thước */
+    .huma-gallery-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Chia làm 2 cột */
+        gap: 10px; /* Khoảng cách giữa các tấm hình */
+        width: 100%;
+        max-width: 800px; /* Bạn có thể tăng giảm chiều rộng tùy ý */
+        margin: 0 auto;
+    }
+
+    .huma-gallery-item {
+        width: 100%;
+        aspect-ratio: 1 / 1; /* Mặc định 7 tấm đầu là hình vuông 1x1 */
+        overflow: hidden;
+    }
+
+    /* Riêng tấm thứ 8 thiết lập tỉ lệ 16:9 */
+    .huma-gallery-item:nth-child(8) {
+        grid-column: span 2; /* Chiếm hết chiều ngang 2 cột */
+        aspect-ratio: 16 / 9; 
+    }
+
+    .huma-gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Giúp hình không bị móp méo khi đổi tỉ lệ */
+        display: block;
+    }
+
+    /* Giữ nguyên các hiệu ứng glow cũ của bạn */
+    .huma-item-glow {
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+    .huma-item-glow:hover {
+        transform: scale(1.02);
+        filter: brightness(1.1);
+    }
+</style>
+
+<div class="huma-gallery-container">
+    <div class="huma-gallery-item huma-item-glow" onclick="openLightbox('huma_1.png')">
+        <img src="huma_1.png" alt="Huma Design 1">
     </div>
+    <div class="huma-gallery-item huma-item-glow" onclick="openLightbox('huma_2.png')">
+        <img src="huma_2.png" alt="Huma Design 2">
+    </div>
+    <div class="huma-gallery-item huma-item-glow" onclick="openLightbox('huma_3.png')">
+        <img src="huma_3.png" alt="Huma Design 3">
+    </div>
+    <div class="huma-gallery-item huma-item-glow" onclick="openLightbox('huma_4.png')">
+        <img src="huma_4.png" alt="Huma Design 4">
+    </div>
+    <div class="huma-gallery-item huma-item-glow" onclick="openLightbox('huma_5.png')">
+        <img src="huma_5.png" alt="Huma Design 5">
+    </div>
+    <div class="huma-gallery-item huma-item-glow" onclick="openLightbox('huma_6.png')">
+        <img src="huma_6.png" alt="Huma Design 6">
+    </div>
+    <div class="huma-gallery-item huma-item-glow" onclick="openLightbox('huma_7.png')">
+        <img src="huma_7.png" alt="Huma Design 7">
+    </div>
+
+    <div class="huma-gallery-item huma-item-glow" onclick="openLightbox('huma_8.png')">
+        <img src="huma_8.png" alt="Huma Design 8">
+    </div>
+</div>
 </div>
     <style>
     <style>
