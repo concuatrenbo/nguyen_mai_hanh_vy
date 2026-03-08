@@ -1250,72 +1250,106 @@
     </div>
 
     <style>
-    /* Phần điều chỉnh bố cục và kích thước */
-    .huma-gallery-container {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr); /* Chia làm 2 cột */
-        gap: 10px; /* Khoảng cách giữa các tấm hình */
+    /* Tổng thể container */
+    .huma-main-wrapper {
         width: 100%;
-        max-width: 800px; /* Bạn có thể tăng giảm chiều rộng tùy ý */
-        margin: 0 auto;
+        max-width: 900px;
+        margin: 20px auto;
+        overflow: hidden;
+        font-family: sans-serif;
     }
 
-    .huma-gallery-item {
+    /* 1. HIỆU ỨNG CHẠY NGANG (Cho 7 tấm 1x1) */
+    .huma-slider-container {
         width: 100%;
-        aspect-ratio: 1 / 1; /* Mặc định 7 tấm đầu là hình vuông 1x1 */
+        overflow: hidden;
+        white-space: nowrap;
+        padding: 20px 0;
+        background: rgba(0,0,0,0.03); /* Nền mờ cho phần chạy ngang */
+        margin-bottom: 30px;
+    }
+
+    .huma-slider-track {
+        display: inline-flex;
+        animation: scroll-left 20s linear infinite; /* Chỉnh giây để chạy nhanh/chậm */
+    }
+
+    /* Để tạo hiệu ứng chạy vô tận, chúng ta lặp lại các item */
+    .huma-slider-track:hover {
+        animation-play-state: paused; /* Rê chuột vào thì dừng lại */
+    }
+
+    .huma-slider-item {
+        width: 150px; /* Độ rộng hình vuông */
+        height: 150px;
+        margin: 0 10px;
+        flex-shrink: 0;
+    }
+
+    /* 2. KHUNG ẢNH 16x9 CỐ ĐỊNH BÊN DƯỚI */
+    .huma-fixed-big-item {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        margin-top: 20px;
+        border-radius: 12px;
         overflow: hidden;
     }
 
-    /* Riêng tấm thứ 8 thiết lập tỉ lệ 16:9 */
-    .huma-gallery-item:nth-child(8) {
-        grid-column: span 2; /* Chiếm hết chiều ngang 2 cột */
-        aspect-ratio: 16 / 9; 
-    }
-
+    /* Hiệu ứng hình ảnh và Glow */
     .huma-gallery-item img {
         width: 100%;
         height: 100%;
-        object-fit: cover; /* Giúp hình không bị móp méo khi đổi tỉ lệ */
+        object-fit: cover;
         display: block;
+        border-radius: 8px;
     }
 
-    /* Giữ nguyên các hiệu ứng glow cũ của bạn */
     .huma-item-glow {
         cursor: pointer;
-        transition: transform 0.3s ease;
+        position: relative;
+        transition: all 0.3s ease;
+        box-shadow: 0 0 5px rgba(0,0,0,0.1);
     }
+
     .huma-item-glow:hover {
-        transform: scale(1.02);
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         filter: brightness(1.1);
+    }
+
+    /* Animation cho dải hình chạy ngang */
+    @keyframes scroll-left {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
     }
 </style>
 
-<div class="huma-gallery-container">
-    <div class="huma-gallery-item huma-item-glow" onclick="openLightbox('huma_1.png')">
-        <img src="huma_1.png" alt="Huma Design 1">
-    </div>
-    <div class="huma-gallery-item huma-item-glow" onclick="openLightbox('huma_2.png')">
-        <img src="huma_2.png" alt="Huma Design 2">
-    </div>
-    <div class="huma-gallery-item huma-item-glow" onclick="openLightbox('huma_3.png')">
-        <img src="huma_3.png" alt="Huma Design 3">
-    </div>
-    <div class="huma-gallery-item huma-item-glow" onclick="openLightbox('huma_4.png')">
-        <img src="huma_4.png" alt="Huma Design 4">
-    </div>
-    <div class="huma-gallery-item huma-item-glow" onclick="openLightbox('huma_5.png')">
-        <img src="huma_5.png" alt="Huma Design 5">
-    </div>
-    <div class="huma-gallery-item huma-item-glow" onclick="openLightbox('huma_6.png')">
-        <img src="huma_6.png" alt="Huma Design 6">
-    </div>
-    <div class="huma-gallery-item huma-item-glow" onclick="openLightbox('huma_7.png')">
-        <img src="huma_7.png" alt="Huma Design 7">
+<div class="huma-main-wrapper">
+    
+    <div class="huma-slider-container">
+        <div class="huma-slider-track">
+            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_1.png')"><img src="huma_1.png"></div>
+            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_2.png')"><img src="huma_2.png"></div>
+            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_3.png')"><img src="huma_3.png"></div>
+            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_4.png')"><img src="huma_4.png"></div>
+            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_5.png')"><img src="huma_5.png"></div>
+            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_6.png')"><img src="huma_6.png"></div>
+            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_7.png')"><img src="huma_7.png"></div>
+            
+            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_1.png')"><img src="huma_1.png"></div>
+            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_2.png')"><img src="huma_2.png"></div>
+            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_3.png')"><img src="huma_3.png"></div>
+            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_4.png')"><img src="huma_4.png"></div>
+            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_5.png')"><img src="huma_5.png"></div>
+            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_6.png')"><img src="huma_6.png"></div>
+            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_7.png')"><img src="huma_7.png"></div>
+        </div>
     </div>
 
-    <div class="huma-gallery-item huma-item-glow" onclick="openLightbox('huma_8.png')">
-        <img src="huma_8.png" alt="Huma Design 8">
+    <div class="huma-fixed-big-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_8.png')">
+        <img src="huma_8.png" alt="Huma Design Big">
     </div>
+</div>
 </div>
 </div>
     <style>
