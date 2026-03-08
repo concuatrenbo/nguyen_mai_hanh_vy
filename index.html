@@ -1265,22 +1265,21 @@
         overflow: hidden;
         white-space: nowrap;
         padding: 20px 0;
-        background: rgba(0,0,0,0.03); /* Nền mờ cho phần chạy ngang */
+        background: rgba(0,0,0,0.03); 
         margin-bottom: 30px;
     }
 
     .huma-slider-track {
         display: inline-flex;
-        animation: scroll-left 20s linear infinite; /* Chỉnh giây để chạy nhanh/chậm */
+        animation: scroll-left 25s linear infinite; /* Chỉnh 25s để chạy êm hơn */
     }
 
-    /* Để tạo hiệu ứng chạy vô tận, chúng ta lặp lại các item */
     .huma-slider-track:hover {
-        animation-play-state: paused; /* Rê chuột vào thì dừng lại */
+        animation-play-state: paused; 
     }
 
     .huma-slider-item {
-        width: 150px; /* Độ rộng hình vuông */
+        width: 150px; 
         height: 150px;
         margin: 0 10px;
         flex-shrink: 0;
@@ -1302,19 +1301,27 @@
         object-fit: cover;
         display: block;
         border-radius: 8px;
+        /* Thêm transition cho cả ảnh bên trong */
+        transition: all 0.4s ease; 
     }
 
     .huma-item-glow {
         cursor: pointer;
         position: relative;
-        transition: all 0.3s ease;
+        border-radius: 8px;
+        /* Tăng thời gian 0.4s để mượt mà hơn */
+        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        border: 2px solid transparent; /* Tạo viền sẵn nhưng trong suốt */
     }
 
     .huma-item-glow:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 0 20px 5px rgba(255, 165, 0, 0.8);
+        transform: translateY(-8px) scale(1.02); /* Bay lên và phóng to nhẹ */
         filter: brightness(1.1);
+        
+        /* Hiệu ứng sáng viền màu cam đồng nhất */
+        border: 2px solid rgba(255, 140, 0, 1); 
+        box-shadow: 0 0 25px 8px rgba(255, 140, 0, 0.6); 
     }
 
     /* Animation cho dải hình chạy ngang */
@@ -1344,6 +1351,13 @@
             <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_6.png')"><img src="huma_6.png"></div>
             <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_7.png')"><img src="huma_7.png"></div>
         </div>
+    </div>
+
+    <div class="huma-fixed-big-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_8.png')">
+        <img src="huma_8.png" alt="Huma Design Big">
+    </div>
+
+</div>
     </div>
 
     <div class="huma-fixed-big-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_8.png')">
