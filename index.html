@@ -275,6 +275,43 @@
             .btn-group { display: flex; flex-direction: column; gap: 10px; }
             .btn { margin: 0 !important; width: 100%; }
         }
+.quick-stats {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.stat-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(79, 70, 229, 0.05); /* Màu xanh Indigo nhạt */
+    padding: 8px 16px;
+    border-radius: 50px;
+    border: 1px solid rgba(79, 70, 229, 0.1);
+    transition: var(--transition);
+}
+
+.stat-badge:hover {
+    background: rgba(79, 70, 229, 0.1);
+    transform: translateY(-2px);
+}
+
+.stat-badge i {
+    color: var(--accent-color);
+    font-size: 1rem;
+}
+
+.stat-badge span {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.stat-badge strong {
+    color: var(--accent-color);
+}
     </style>
 
     <section id="about" class="hero">
@@ -294,8 +331,22 @@
     </span>
 
     <p style="font-size: 1rem; opacity: 0.8; margin-top: 1rem; border-top: 1px solid #eee; padding-top: 1rem;">
-        Tôi yêu thích việc dành nhiều thời gian để <strong>lắng nghe và học hỏi<strong>, nhằm nuôi dưỡng cảm xúc, bồi dưỡng nền tảng kiến thức vững chắc cho hành trình tương lai.
+        Tôi yêu thích việc dành nhiều thời gian để <strong>lắng nghe và học hỏi</strong>, nhằm nuôi dưỡng cảm xúc, bồi dưỡng nền tảng kiến thức vững chắc cho hành trình tương lai.
     </p>
+</div>
+<div class="quick-stats">
+    <div class="stat-badge">
+        <i class="fas fa-briefcase"></i>
+        <span><strong>1+ Năm</strong> Kinh nghiệm Quản lý Fanpage</span>
+    </div>
+    <div class="stat-badge">
+        <i class="fas fa-users"></i>
+        <span><strong>60K+ Followers</strong> (Đạt được trong 7 tháng)</span>
+    </div>
+</div>
+
+<div class="btn-group" style="margin-top: 30px;">
+    ...
 </div>
             <div class="btn-group">
                 <a href="mailto:nmhv29@gmail.com" class="btn btn-filled">Kết nối với tôi</a>
