@@ -6,7 +6,7 @@
     <title>Portfolio | Nguyễn Mai Hạnh Vy</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Yellowtail&display=swap" rel="stylesheet">
     <style>
         :root { 
             /* Bảng màu mới: Bright & Professional */
@@ -356,38 +356,40 @@
 }
 .thanks-section {
     text-align: center;
-    padding: 100px 20px;
-    margin-top: 50px;
+    padding: 40px 20px; /* Thu nhỏ khoảng trắng trên dưới từ 100px xuống 40px */
+    margin-top: 20px;
 }
 
 .thanks-text {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 0px; /* Loại bỏ khoảng cách giữa 2 dòng chữ */
 }
 
 .thanks-script {
-    font-family: 'Dancing Script', cursive; /* Font uốn lượn */
-    font-size: 4.5rem;
-    color: var(--accent-color); /* Màu Indigo thương hiệu của bạn */
-    line-height: 1;
-    margin-bottom: -15px; /* Kéo chữ For Watching lại gần hơn cho nghệ thuật */
+    font-family: 'Yellowtail', cursive; /* Font nét dày và uốn lượn mạnh hơn */
+    font-size: 7rem; /* Tăng kích thước chữ to hẳn lên */
+    color: var(--accent-color);
+    line-height: 0.8; /* Ép dòng chữ Thanks sát xuống */
+    margin-bottom: 0px;
+    transform: rotate(-3deg); /* Nghiêng nhẹ cho nghệ thuật giống ảnh mẫu */
 }
 
 .thanks-modern {
-    font-family: 'Inter', sans-serif; /* Font hiện đại */
-    font-size: 1.2rem;
-    font-weight: 800;
+    font-family: sans-serif;
+    font-size: 1.1rem;
+    font-weight: 900;
     color: var(--slate-400);
     text-transform: uppercase;
-    letter-spacing: 8px; /* Giãn chữ ra cho sang trọng */
-    margin-left: 8px;
+    letter-spacing: 12px; /* Giãn chữ rộng hơn để cân bằng với chữ Thanks to */
+    margin-top: 10px;
 }
 
+/* Tối ưu cho điện thoại không bị tràn màn hình */
 @media (max-width: 768px) {
-    .thanks-script { font-size: 3.5rem; }
-    .thanks-modern { font-size: 0.9rem; letter-spacing: 5px; }
+    .thanks-script { font-size: 4.5rem; }
+    .thanks-modern { font-size: 0.8rem; letter-spacing: 6px; }
 }
     </style>
 
