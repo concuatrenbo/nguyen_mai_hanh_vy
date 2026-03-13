@@ -356,40 +356,43 @@
 }
 .thanks-section {
     text-align: center;
-    padding: 40px 20px; /* Thu nhỏ khoảng trắng trên dưới từ 100px xuống 40px */
-    margin-top: 20px;
+    padding: 0; /* Triệt tiêu hoàn toàn padding dọc */
+    margin-top: -40px; /* Dùng số âm để kéo toàn bộ khối này sát lên trên video */
+    margin-bottom: 60px;
 }
 
 .thanks-text {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0px; /* Loại bỏ khoảng cách giữa 2 dòng chữ */
+    gap: 0; /* Không cho 2 dòng chữ cách xa nhau */
 }
 
 .thanks-script {
-    font-family: 'Yellowtail', cursive; /* Font nét dày và uốn lượn mạnh hơn */
-    font-size: 7rem; /* Tăng kích thước chữ to hẳn lên */
+    font-family: 'Yellowtail', cursive;
+    font-size: 10rem; /* Tăng kích thước cực đại để lấp đầy khoảng trống */
     color: var(--accent-color);
-    line-height: 0.8; /* Ép dòng chữ Thanks sát xuống */
-    margin-bottom: 0px;
-    transform: rotate(-3deg); /* Nghiêng nhẹ cho nghệ thuật giống ảnh mẫu */
+    line-height: 0.7; /* Ép chữ sát lại để lấp đầy không gian */
+    margin: 0;
+    transform: rotate(-2deg); /* Nghiêng nhẹ cho nghệ thuật */
+    display: block;
 }
 
 .thanks-modern {
     font-family: sans-serif;
-    font-size: 1.1rem;
+    font-size: 1.5rem; /* Tăng size chữ phụ */
     font-weight: 900;
     color: var(--slate-400);
     text-transform: uppercase;
-    letter-spacing: 12px; /* Giãn chữ rộng hơn để cân bằng với chữ Thanks to */
-    margin-top: 10px;
+    letter-spacing: 15px; /* Giãn rộng để cân xứng với chữ Thanks khổng lồ */
+    margin-top: -10px; /* Kéo chữ phụ dính gần vào chữ chính */
 }
 
-/* Tối ưu cho điện thoại không bị tràn màn hình */
+/* Tối ưu cho Mobile để không bị tràn màn hình */
 @media (max-width: 768px) {
-    .thanks-script { font-size: 4.5rem; }
-    .thanks-modern { font-size: 0.8rem; letter-spacing: 6px; }
+    .thanks-script { font-size: 6rem; }
+    .thanks-modern { font-size: 1rem; letter-spacing: 8px; margin-top: 5px; }
+    .thanks-section { margin-top: -20px; }
 }
     </style>
 
