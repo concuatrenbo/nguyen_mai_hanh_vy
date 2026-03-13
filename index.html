@@ -1507,21 +1507,21 @@
     
     <div class="huma-slider-container">
         <div class="huma-slider-track">
-            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_1.png')"><img src="huma_1.jpg"></div>
-            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_2.png')"><img src="huma_2.jpg"></div>
+            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_1.jpg')"><img src="huma_1.jpg"></div>
+            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_2.jpg')"><img src="huma_2.jpg"></div>
             <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_3.png')"><img src="huma_3.png"></div>
-            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_4.png')"><img src="huma_4.jpg"></div>
-            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_5.png')"><img src="huma_5.jpg"></div>
-            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_6.png')"><img src="huma_6.jpg"></div>
-            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_7.png')"><img src="huma_7.jpg"></div>
+            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_4.jpg')"><img src="huma_4.jpg"></div>
+            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_5.jpg')"><img src="huma_5.jpg"></div>
+            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_6.jpg')"><img src="huma_6.jpg"></div>
+            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_7.jpg')"><img src="huma_7.jpg"></div>
             
-            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_1.png')"><img src="huma_1.jpg"></div>
-            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_2.png')"><img src="huma_2.jpg"></div>
+            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_1.jpg')"><img src="huma_1.jpg"></div>
+            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_2.jpg')"><img src="huma_2.jpg"></div>
             <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_3.png')"><img src="huma_3.png"></div>
-            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_4.png')"><img src="huma_4.jpg"></div>
-            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_5.png')"><img src="huma_5.jpg"></div>
-            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_6.png')"><img src="huma_6.jpg"></div>
-            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_7.png')"><img src="huma_7.jpg"></div>
+            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_4.jpg')"><img src="huma_4.jpg"></div>
+            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_5.jpg')"><img src="huma_5.jpg"></div>
+            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_6.jpg')"><img src="huma_6.jpg"></div>
+            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_7.jpg')"><img src="huma_7.jpg"></div>
         </div>
     </div>
 
@@ -1798,11 +1798,19 @@
         }
     }
 
-    function openLightbox(src) { 
-        document.getElementById('lightbox-img').src = src; 
-        document.getElementById('lightbox').style.display = 'flex'; 
-        document.body.style.overflow = 'hidden'; 
-    }
+    function openLightbox(src) {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    
+    // Gán đường dẫn ảnh
+    lightboxImg.src = src;
+    
+    // Hiện lightbox
+    lightbox.style.display = 'flex';
+    
+    // Khóa cuộn trang khi đang xem ảnh
+    document.body.style.overflow = 'hidden';
+}
 
     function closeLightbox() { 
         document.getElementById('lightbox').style.display = 'none'; 
