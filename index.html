@@ -1545,14 +1545,14 @@
 }
     .vds-badge {
         display: inline-block;
-        background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
-        color: white;
+        background: linear-gradient(135deg, #bf953f 0%, #fcf6ba 45%, #b38728 70%, #fbf5b7 100%);
+        color: #4a3b00;
         padding: 8px 24px;
         border-radius: 50px;
         font-weight: 800;
         margin-left: 40px;
         margin-bottom: 2rem;
-        box-shadow: 0 10px 20px rgba(16, 185, 129, 0.2);
+        box-shadow: 0 10px 20px rgba(184, 134, 11, 0.2);
     }
 
     /* 2. HIỆU ỨNG ÁNH SÁNG TRỌN VẸN */
@@ -1562,15 +1562,13 @@
         border: 2px solid transparent;
         z-index: 1;
     }
-
-    /* Hiệu ứng hào quang lan tỏa không bị chặn bởi khung */
     .vds-glow-item:hover {
         transform: translateY(-15px) scale(1.03);
         z-index: 10;
-        box-shadow: 0 0 25px rgba(16, 185, 129, 0.4), 
-                    0 0 50px rgba(59, 130, 246, 0.3),
-                    0 20px 40px rgba(0, 0, 0, 0.1);
-        border-color: rgba(16, 185, 129, 0.3);
+        box-shadow: 0 0 25px rgba(191, 149, 63, 0.4), 
+                0 0 50px rgba(251, 245, 183, 0.3),
+                0 20px 40px rgba(0, 0, 0, 0.1);
+    border-color: rgba(191, 149, 63, 0.5);
     }
 
     /* 3. GALLERY TRƯỢT TỰ ĐỘNG (SOCIAL POSTS) */
@@ -1615,14 +1613,15 @@
     }
 
     .vds-video-card {
-        width: 100%;
-        aspect-ratio: 16 / 9; /* Ép tỉ lệ chuẩn YouTube */
-        border-radius: 24px;
-        overflow: hidden;
-        background: #ffffff;
-        cursor: pointer;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    }
+    position: relative; /* Thêm dòng này nếu chưa có */
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 24px;
+    overflow: hidden;
+    background: #ffffff;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
 
     .vds-video-card img {
         width: 100%;
@@ -1646,7 +1645,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        color: #3b82f6;
+        color: #b8860b;
         font-size: 1.5rem;
         transition: 0.3s;
         z-index: 2;
@@ -1682,10 +1681,13 @@
     </div>
 
     <div class="vds-single-video-container">
-        <div class="vds-video-card vds-glow-item" onclick="openLightbox('vds_vid_1.mp4')">
+    <a href="https://drive.google.com/file/d/1WixuXymkCSqO0sGhpzDdZJ5YGr-JJBSv/view?usp=sharing" target="_blank" style="text-decoration: none;">
+        <div class="vds-video-card vds-glow-item">
             <img src="vds_vid_1.png">
             <div class="video-overlay"><i class="fas fa-play"></i></div>
         </div>
+    </a>
+</div>
     </div>
 </div>
 </section>
