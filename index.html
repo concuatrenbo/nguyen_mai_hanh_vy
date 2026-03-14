@@ -1,4 +1,4 @@
-@media (max-width:<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
@@ -6,6 +6,10 @@
     <title>Portfolio | Nguyễn Mai Hạnh Vy</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Yellowtail&display=swap" rel="stylesheet">
+html {
+    scroll-behavior: smooth;
+}
     <style>
         :root { 
             /* Bảng màu mới: Bright & Professional */
@@ -132,6 +136,114 @@
             nav a { font-size: 0.8rem; }
             .section-title { font-size: 1.8rem; }
         }
+/* Hiệu ứng chuyển chữ cho Sub-headline */
+/* Câu slogan chính */
+.slogan-text {
+    font-size: 1.5rem; /* To hơn đoạn văn thường (1.1rem) */
+    font-weight: 700;
+    color: var(--text-color);
+    line-height: 1.4;
+    margin-bottom: 1.5rem;
+    display: block; /* Tách biệt hoàn toàn với đoạn dưới */
+}
+
+/* Hiệu ứng chữ chạy */
+.flip-wrapper {
+    display: inline-block;
+    position: relative;
+    color: var(--accent-color); /* Màu xanh Indigo theo flow của bạn */
+    font-weight: 800;
+    min-width: 160px; /* Tăng nhẹ độ rộng vì chữ to hơn */
+    text-align: center;
+    border-bottom: 2px solid rgba(79, 70, 229, 0.2); /* Thêm gạch chân mờ cho tinh tế */
+}
+
+.flip-text {
+    display: inline-block;
+    transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.fade-out { opacity: 0; transform: translateY(-10px); }
+.fade-in { opacity: 0; transform: translateY(10px); }
+/* TỐI ƯU UX/UI MOBILE BY GEMINI */
+
+@media (max-width: 768px) {
+    /* 1. Thanh điều hướng dạng cuộn ngang (Scrollable Nav) 
+       Giúp người dùng vẫn truy cập được mọi mục mà không làm rối UI */
+    .nav-container {
+        padding: 0.8rem 1rem;
+    }
+    
+    nav ul {
+        gap: 1.5rem;
+        overflow-x: auto;
+        padding: 10px 0;
+        width: 100%;
+        justify-content: flex-start;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Ẩn scrollbar để đẹp hơn */
+    }
+    
+    nav ul::-webkit-scrollbar { display: none; }
+
+    nav a {
+        white-space: nowrap; /* Không cho chữ nhảy xuống dòng */
+        font-size: 0.85rem;
+        background: rgba(79, 70, 229, 0.05); /* Tạo khối nhẹ để dễ chạm */
+        padding: 6px 12px;
+        border-radius: 20px;
+    }
+
+    /* 2. Hero Section - Ưu tiên nội dung */
+    .hero {
+        padding-top: 80px;
+        gap: 1.5rem;
+        min-height: auto; /* Không ép 100vh trên mobile để tránh lỗi trình duyệt */
+    }
+
+    .hero-image {
+        width: 220px; /* Thu nhỏ ảnh để nhường chỗ cho text */
+        height: 220px;
+        margin-top: 20px;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+        letter-spacing: -1px;
+    }
+
+    /* 3. Stats - Chuyển thành Grid 2 cột hoặc hàng ngang cuộn */
+    .stats-badge-container {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+        padding: 15px;
+        gap: 10px;
+    }
+    
+    .stat-number { font-size: 1.8rem; }
+
+    /* 4. Thanks Section - Tránh tràn màn hình */
+    .thanks-script {
+        font-size: 5rem; /* Giảm size để không bị bể layout */
+    }
+    
+    .thanks-modern {
+        font-size: 0.8rem;
+        letter-spacing: 5px;
+    }
+
+    /* 5. Tăng diện tích chạm cho Button */
+    .btn {
+        padding: 1.2rem; /* Nút to hơn một chút để dễ bấm bằng ngón cái */
+        font-size: 1rem;
+    }
+}
+
+/* Hiệu ứng mượt mà khi cuộn cho Mobile */
+* {
+    -webkit-tap-highlight-color: transparent; /* Xóa khung xanh khi chạm trên iOS/Android */
+}
     </style>
 </head>
 <body>
@@ -147,106 +259,142 @@
         </div>
     </nav>
 <style>
-        /* CSS bổ sung dành riêng cho Hero Section */
+    /* CSS TỔI ƯU CHO HERO & STATS - BY GEMINI */
+    .hero { 
+        min-height: 100vh; 
+        display: flex; 
+        align-items: center; 
+        gap: 4rem; 
+        padding-top: 100px;
+    }
+
+    .hero-image { 
+        width: 320px; 
+        height: 320px; 
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        border: 2px solid var(--accent-color); 
+        overflow: hidden; 
+        flex-shrink: 0; 
+        box-shadow: 20px 20px 50px rgba(79, 70, 229, 0.1); 
+        background: var(--secondary-bg);
+        transition: var(--transition);
+        animation: morph 8s ease-in-out infinite;
+    }
+
+    @keyframes morph {
+        0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+        50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+        100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+    }
+
+    .hero-content { flex: 1; }
+
+    .hero h1 { 
+        font-size: clamp(2.5rem, 5vw, 4rem); 
+        margin: 10px 0 20px 0; 
+        line-height: 1.1; 
+        color: var(--text-color); 
+        font-weight: 800;
+        letter-spacing: -2px;
+    }
+
+    .intro-text { 
+        font-size: 1.1rem; 
+        color: var(--slate-400); 
+        max-width: 600px; 
+        margin-bottom: 2.5rem; 
+        border-left: 3px solid var(--accent-color); 
+        padding-left: 20px; 
+        line-height: 1.8;
+    }
+
+    /* Stats Badge Container */
+    .stats-badge-container {
+        display: inline-flex;
+        align-items: center;
+        gap: 40px; 
+        padding: 20px 35px;
+        background: #ffffff;
+        border: 1.5px solid rgba(79, 70, 229, 0.3);
+        border-radius: 20px;
+        margin: 25px 0;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    }
+
+    .stat-number {
+        display: block;
+        font-size: 2.2rem;
+        font-weight: 800;
+        color: var(--accent-color);
+        line-height: 1.1;
+    }
+
+    .stat-label {
+        display: block;
+        font-size: 0.65rem;
+        font-weight: 700;
+        color: var(--slate-400);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        white-space: nowrap;
+    }
+
+    .stat-divider {
+        width: 1px;
+        height: 45px;
+        background: rgba(79, 70, 229, 0.15);
+    }
+
+    /* RESPONSIVE CHO MOBILE */
+    @media (max-width: 768px) {
         .hero { 
-            min-height: 100vh; 
-            display: flex; 
-            align-items: center; 
-            gap: 4rem; 
-            padding-top: 100px;
+            flex-direction: column-reverse; 
+            text-align: center; 
+            gap: 2rem; 
+            padding-top: 80px;
         }
 
-        .hero-image { 
-            width: 320px; 
-            height: 320px; 
-            /* Shape theo trend organic đang rất hot trong ngành Media */
-            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-            border: 2px solid var(--accent-color); 
-            overflow: hidden; 
-            flex-shrink: 0; 
-            box-shadow: 20px 20px 50px rgba(79, 70, 229, 0.1); 
-            background: var(--secondary-bg);
-            transition: var(--transition);
-            animation: morph 8s ease-in-out infinite;
-        }
-
-        @keyframes morph {
-            0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
-            50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
-            100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
-        }
-
-        .hero-image:hover {
-            transform: scale(1.02);
-            box-shadow: 0 30px 60px rgba(79, 70, 229, 0.15);
-        }
-
-        .hero-image img { width: 100%; height: 100%; object-fit: cover; }
-
-        .hero-content { flex: 1; }
-
-        .hero h1 { 
-            font-size: clamp(2.5rem, 5vw, 4rem); 
-            margin: 10px 0 20px 0; 
-            line-height: 1.1; 
-            color: var(--text-color); 
-            font-weight: 800;
-            letter-spacing: -2px;
+        .hero-image {
+            width: 240px;
+            height: 240px;
+            margin: 0 auto;
         }
 
         .intro-text { 
-            font-size: 1.1rem; 
-            color: var(--slate-400); 
-            max-width: 600px; 
-            margin-bottom: 2.5rem; 
-            border-left: 3px solid var(--accent-color); 
-            padding-left: 20px; 
-            line-height: 1.8;
+            margin: 0 auto 2rem; 
+            border-left: none; 
+            border-top: 3px solid var(--accent-color); 
+            padding: 20px 0 0; 
+            font-size: 1rem;
         }
 
-        /* Tối ưu lại Button cho trend sáng sủa */
+        .slogan-text { font-size: 1.2rem; }
+
+        .stats-badge-container {
+            display: flex; /* Chuyển sang flex để tự co giãn */
+            width: 100%;
+            gap: 10px;
+            padding: 15px;
+            justify-content: space-around;
+        }
+
+        .stat-number { font-size: 1.7rem; }
+        .stat-label { white-space: normal; font-size: 0.6rem; }
+
+        .btn-group { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 12px; 
+            width: 100%;
+        }
+
         .btn { 
-            display: inline-block; 
-            padding: 1rem 2rem; 
-            border-radius: 12px; 
-            text-decoration: none; 
-            font-size: 0.95rem; 
-            transition: var(--transition); 
-            font-weight: 700;
+            margin: 0 !important; 
+            width: 100%; 
+            padding: 1.2rem;
         }
-
-        .btn-filled { 
-            background: var(--accent-color); 
-            color: #ffffff; 
-            border: 1px solid var(--accent-color);
-            box-shadow: 0 10px 20px rgba(79, 70, 229, 0.2);
-        }
-
-        .btn-filled:hover { 
-            background: #3730a3; /* Indigo đậm hơn khi hover */
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(79, 70, 229, 0.3);
-        }
-
-        .btn-outline { 
-            background: transparent; 
-            border: 2px solid #e2e8f0; 
-            color: var(--text-color); 
-        }
-
-        .btn-outline:hover { 
-            border-color: var(--accent-color);
-            color: var(--accent-color);
-            transform: translateY(-3px);
-        }
-
-        @media (max-width: 992px) {
-            .hero { flex-direction: column-reverse; text-align: center; gap: 2rem; }
-            .intro-text { margin: 0 auto 2.5rem; border-left: none; border-top: 3px solid var(--accent-color); padding: 20px 0 0; }
-            .btn-group { display: flex; flex-direction: column; gap: 10px; }
-            .btn { margin: 0 !important; width: 100%; }
-        }
-    </style>
+    }
+</style>
 
     <section id="about" class="hero">
         <div class="hero-image">
@@ -256,8 +404,34 @@
             <span style="color: var(--accent-color); font-family: monospace; font-weight: 700; text-transform: uppercase; letter-spacing: 2px;">Xin chào, tôi tên là</span>
             <h1>Nguyễn Mai Hạnh Vy.</h1>
             <div class="intro-text">
-                Tôi là một sinh viên chuyên ngành <strong>Truyền thông Marketing</strong> vừa tốt nghiệp. Bản thân tôi dành nhiều năng lượng và thời gian cho việc tìm tòi và khám phá bản thân. Tôi yêu thích việc lắng nghe và học hỏi để bồi dưỡng một nền tảng kiến thức vững chắc cho hành trình sự nghiệp tương lai.
-            </div>
+    <span class="slogan-text">
+        Kết nối giá trị 
+        <span class="flip-wrapper">
+            <span id="flip-text" class="flip-text">con người</span>
+        </span> 
+        qua những điểm chạm cảm xúc tinh tế.
+    </span>
+
+    <p style="font-size: 1rem; opacity: 0.8; margin-top: 1rem; border-top: 1px solid #eee; padding-top: 1rem;">
+        Tôi yêu thích việc dành nhiều thời gian để <strong>lắng nghe và học hỏi</strong>, nhằm <strong>nuôi dưỡng cảm xúc, bồi dưỡng nền tảng kiến thức</strong> vững chắc cho hành trình tương lai.
+    </p>
+</div>
+<div class="stats-badge-container">
+    <div class="stat-box">
+        <span class="stat-number">01+</span>
+        <span class="stat-label">Năm kinh nghiệm</span>
+    </div>
+
+    <div class="stat-divider"></div>
+
+    <div class="stat-box">
+        <span class="stat-number">60K+</span>
+        <span class="stat-label">Tăng trưởng followers trong 7 tháng</span>
+    </div>
+</div>
+
+<div class="btn-group" style="margin-top: 30px;">
+</div>
             <div class="btn-group">
     <a href="#contact" class="btn btn-filled">Kết nối với tôi</a>
     <a href="CV_NguyenMaiHanhVy.pdf" class="btn btn-outline" download>Tải CV</a>
@@ -494,6 +668,7 @@
                 <p class="date-text">2021 - 2025</p>
                 <ul class="project-description-new">
                     <li>Tốt nghiệp loại Giỏi chuyên ngành Truyền thông Marketing.</li>
+                    <li>Đạt danh hiệu Sinh Viên 5 Tốt cấp Khoa năm 2022 - 2023 .</li>
                 </ul>
             </div>
 
@@ -539,7 +714,6 @@
     }
 </script>
 <style>
-    /* Tối ưu UI cho Kỹ năng & Công cụ */
     .category { 
         color: var(--slate-400); 
         font-size: 0.85rem; 
@@ -559,10 +733,25 @@
         margin-left: 15px;
     }
 
-    .skills-grid { 
-        display: grid; 
-        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); 
-        gap: 1.5rem; 
+    /* Container bao ngoài để ẩn phần thừa */
+    .skills-slider-viewport {
+        width: 100%;
+        overflow: hidden;
+        padding: 20px 0;
+        position: relative;
+    }
+
+    /* Thanh chứa các item chạy ngang */
+    .skills-track {
+        display: flex;
+        gap: 1.5rem;
+        width: max-content;
+        animation: scrollSkills 25s linear infinite; /* Tốc độ chạy */
+    }
+
+    /* Tạm dừng khi di chuột vào để người dùng kịp đọc */
+    .skills-slider-viewport:hover .skills-track {
+        animation-play-state: paused;
     }
 
     .skill-item { 
@@ -572,12 +761,13 @@
         text-align: center; 
         border: 1px solid rgba(0, 0, 0, 0.05); 
         transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-        height: auto; 
+        width: 180px; /* Độ rộng cố định cho mỗi card */
+        flex-shrink: 0;
         display: flex; 
         flex-direction: column; 
         align-items: center; 
         justify-content: center;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
         font-weight: 600;
         font-size: 0.9rem;
         color: var(--text-color);
@@ -586,69 +776,92 @@
     .skill-item:hover { 
         border-color: var(--accent-color); 
         transform: translateY(-10px); 
-        box-shadow: 0 20px 25px -5px rgba(79, 70, 229, 0.1), 0 10px 10px -5px rgba(79, 70, 229, 0.04);
-        background: #fff;
+        box-shadow: 0 20px 25px -5px rgba(79, 70, 229, 0.1);
     }
 
     .skill-item i { 
         font-size: 2.5rem; 
         color: var(--accent-color); 
         margin-bottom: 15px; 
-        transition: transform 0.3s ease;
     }
 
-    .skill-item:hover i {
-        transform: scale(1.1);
+    /* Hiệu ứng chạy vô tận */
+    @keyframes scrollSkills {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(calc(-180px * 6 - 1.5rem * 6)); } 
+        /* Công thức: -(Độ rộng card * số lượng card gốc + Gap * số lượng card gốc) */
     }
+/* Animation trượt từ trái sang phải cho Công cụ */
+.skills-track-reverse {
+    display: flex;
+    gap: 1.5rem;
+    width: max-content;
+    animation: scrollTools 30s linear infinite; /* Chậm hơn một chút cho dễ nhìn */
+}
 
-    .skill-item img { 
-        width: 50px; 
-        height: 50px; 
-        object-fit: contain; 
-        margin-bottom: 15px; 
-        filter: grayscale(20%);
-        transition: filter 0.3s ease;
-    }
+@keyframes scrollTools {
+    0% { transform: translateX(calc(-180px * 8 - 1.5rem * 8)); } 
+    100% { transform: translateX(0); }
+}
 
-    .skill-item:hover img {
-        filter: grayscale(0%);
-    }
+/* Giữ style cho hình ảnh công cụ */
+.skill-item img {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+    margin-bottom: 12px;
+    filter: grayscale(10%);
+    transition: var(--transition);
+}
 
-    @media (max-width: 480px) {
-        .skills-grid {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-        }
-        .skill-item {
-            padding: 1.5rem 1rem;
-        }
-    }
+.skill-item:hover img {
+    filter: grayscale(0%) scale(1.1);
+}
 </style>
 
 <section id="skills">
     <h2 class="section-title">Kỹ năng & Công cụ</h2>
     
     <h3 class="category">Kỹ năng</h3>
-    <div class="skills-grid" style="margin-bottom: 3rem;">
-        <div class="skill-item"><i class="fas fa-search"></i>Nghiên cứu</div>
-        <div class="skill-item"><i class="fas fa-calendar-alt"></i>Lên kế hoạch nội dung</div>
-        <div class="skill-item"><i class="fas fa-lightbulb"></i>Lên ý tưởng nội dung</div>
-        <div class="skill-item"><i class="fas fa-clock"></i>Quản lý thời gian</div>
-        <div class="skill-item"><i class="fas fa-users"></i>Làm việc nhóm & Độc lập</div>
-        <div class="skill-item"><i class="fas fa-robot"></i>Sử dụng AI hỗ trợ công việc</div>
-    </div>
+    <div class="skills-slider-viewport">
+        <div class="skills-track">
+            <div class="skill-item"><i class="fas fa-search"></i>Nghiên cứu</div>
+            <div class="skill-item"><i class="fas fa-calendar-alt"></i>Lập kế hoạch</div>
+            <div class="skill-item"><i class="fas fa-lightbulb"></i>Sáng tạo nội dung</div>
+            <div class="skill-item"><i class="fas fa-clock"></i>Quản lý thời gian</div>
+            <div class="skill-item"><i class="fas fa-users"></i>Làm việc nhóm</div>
+            <div class="skill-item"><i class="fas fa-robot"></i>Sử dụng AI</div>
 
+            <div class="skill-item"><i class="fas fa-search"></i>Nghiên cứu</div>
+            <div class="skill-item"><i class="fas fa-calendar-alt"></i>Lập kế hoạch</div>
+            <div class="skill-item"><i class="fas fa-lightbulb"></i>Sáng tạo nội dung</div>
+            <div class="skill-item"><i class="fas fa-clock"></i>Quản lý thời gian</div>
+            <div class="skill-item"><i class="fas fa-users"></i>Làm việc nhóm</div>
+            <div class="skill-item"><i class="fas fa-robot"></i>Sử dụng AI</div>
+        </div>
+    </div>
     <h3 class="category">Công cụ</h3>
-    <div class="skills-grid">
-        <div class="skill-item"><img src="image_2.png" alt="Word Logo">Word</div>
-        <div class="skill-item"><img src="image_3.png" alt="Excel Logo">Excel</div>
-        <div class="skill-item"><img src="image_4.png" alt="Power Point Logo">Power Point</div>
+<div class="skills-slider-viewport">
+    <div class="skills-track-reverse">
+        <div class="skill-item"><img src="image_2.png" alt="Word">Word</div>
+        <div class="skill-item"><img src="image_3.png" alt="Excel">Excel</div>
+        <div class="skill-item"><img src="image_4.png" alt="Power Point">Power Point</div>
         <div class="skill-item"><img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg" alt="PS">Photoshop</div>
         <div class="skill-item"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Illustrator_CC_icon.svg" alt="AI">Illustrator</div>
         <div class="skill-item"><img src="https://upload.wikimedia.org/wikipedia/commons/4/40/Adobe_Premiere_Pro_CC_icon.svg" alt="PR">Premiere Pro</div>
-        <div class="skill-item"><img src="image_8.png" alt="Canva Logo">Canva</div>
-        <div class="skill-item"><img src="image_9.png" alt="CapCut Logo">CapCut</div>
+        <div class="skill-item"><img src="image_8.png" alt="Canva">Canva</div>
+        <div class="skill-item"><img src="image_9.png" alt="CapCut">CapCut</div>
+
+        <div class="skill-item"><img src="image_2.png" alt="Word">Word</div>
+        <div class="skill-item"><img src="image_3.png" alt="Excel">Excel</div>
+        <div class="skill-item"><img src="image_4.png" alt="Power Point">Power Point</div>
+        <div class="skill-item"><img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg" alt="PS">Photoshop</div>
+        <div class="skill-item"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Illustrator_CC_icon.svg" alt="AI">Illustrator</div>
+        <div class="skill-item"><img src="https://upload.wikimedia.org/wikipedia/commons/4/40/Adobe_Premiere_Pro_CC_icon.svg" alt="PR">Premiere Pro</div>
+        <div class="skill-item"><img src="image_8.png" alt="Canva">Canva</div>
+        <div class="skill-item"><img src="image_9.png" alt="CapCut">CapCut</div>
     </div>
+</div>
 </section>
 <style>
     /* Timeline Container tối ưu cho nền sáng */
@@ -825,7 +1038,7 @@
                 </div>
                 <ul class="job-desc-list">
                     <li>Thiết kế ấn phẩm hình ảnh cho các bài đăng Social Media theo dự án.</li>
-                    <li>Hỗ trợ xây dựng nội dung bài viết và thực hiện các chiến dịch seeding cộng đồng.</li>
+                    <li>Hỗ trợ xây dựng nội dung bài viết và thực hiện hoạt động seeding nhằm tăng nhận diện đến nhóm đối tượng mục tiêu.</li>
                 </ul>
             </div>
         </div>
@@ -841,9 +1054,9 @@
                     <span class="job-date">Tháng 1/2024 – Tháng 6/2024</span>
                 </div>
                 <ul class="job-desc-list">
-                    <li>Định hướng và quản lý nội dung cho Fanpage và Youtube.</li>
-                    <li>Xây dựng kịch bản, edit video Shorts và thiết kế poster truyền thông.</li>
-                    <li>Thực hiện seeding để tăng độ nhận diện thương hiệu.</li>
+                    <li>Lên kế hoạch và vận hành kênh Fanpage và Youtube của thương hiệu.</li>
+                    <li>Xây dựng kịch bản, dựng video và thiết kế poster truyền thông cho các chiến dịch.</li>
+                    <li>Thực hiện hoạt động seeding để tăng độ nhận diện thương hiệu.</li>
                 </ul>
             </div>
         </div>
@@ -1179,14 +1392,14 @@
 
     .huma-badge {
         display: inline-block;
-        background: linear-gradient(135deg, #f97316 0%, #fbbf24 100%);
+        background: linear-gradient(135deg, #0019bf 0%, #0026ff 70%, #d81e1e 100%);
         color: white;
         padding: 8px 24px;
         border-radius: 50px;
         font-weight: 800;
         margin-left: 40px; /* Căn lề theo padding chung của website */
         margin-bottom: 2rem;
-        box-shadow: 0 10px 20px rgba(249, 115, 22, 0.2);
+        box-shadow: 0 10px 20px rgba(0, 38, 255, 0.3);
     }
 
     /* 2. CẤU TRÚC TRƯỢT NGANG TỰ ĐỘNG (INFINITE SCROLL) */
@@ -1218,7 +1431,7 @@
 
     .huma-gallery-item:hover {
         transform: scale(1.05);
-        border-color: #f97316;
+        border-color: #0026ff;
     }
 
     .huma-gallery-item img {
@@ -1240,12 +1453,12 @@
 </style>
 
 <div class="huma-section-wrapper">
-    <div class="huma-badge">DESIGN PROJECTS @ HUMA AGENCY</div>
+    <div class="huma-badge">HUMA AGENCY</div>
     
     <div style="padding: 0 40px; margin-bottom: 3rem;">
-        <h2 style="color: var(--text-color); font-weight: 800; font-size: 2.2rem; margin-bottom: 10px;">Thư viện sáng tạo</h2>
+        <h2 style="color: var(--text-color); font-weight: 800; font-size: 2.2rem; margin-bottom: 10px;"></h2>
         <p style="color: var(--slate-400); max-width: 700px; line-height: 1.6;">
-            Trong thời gian thực tập tại HUMA Agency, tôi đã trực tiếp tham gia thiết kế các ấn phẩm hình ảnh cho các chiến dịch Social Media. Dưới đây là những sản phẩm tiêu biểu thể hiện tư duy thiết kế và khả năng ứng dụng công cụ của bản thân.
+            Các ấn phẩm hình ảnh cho các dự án Social Media.
         </p>
     </div>
 
@@ -1320,8 +1533,8 @@
         filter: brightness(1.1);
         
         /* Hiệu ứng sáng viền màu cam đồng nhất */
-        border: 2px solid rgba(255, 140, 0, 1); 
-        box-shadow: 0 0 25px 8px rgba(255, 140, 0, 0.6); 
+        border: 2px solid rgba(0, 38, 255, 1); 
+    box-shadow: 0 0 25px 8px rgba(0, 38, 255, 0.5); 
     }
 
     /* Animation cho dải hình chạy ngang */
@@ -1335,21 +1548,21 @@
     
     <div class="huma-slider-container">
         <div class="huma-slider-track">
-            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_1.png')"><img src="huma_1.jpg"></div>
-            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_2.png')"><img src="huma_2.jpg"></div>
+            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_1.jpg')"><img src="huma_1.jpg"></div>
+            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_2.jpg')"><img src="huma_2.jpg"></div>
             <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_3.png')"><img src="huma_3.png"></div>
-            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_4.png')"><img src="huma_4.jpg"></div>
-            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_5.png')"><img src="huma_5.jpg"></div>
-            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_6.png')"><img src="huma_6.jpg"></div>
-            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_7.png')"><img src="huma_7.jpg"></div>
+            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_4.jpg')"><img src="huma_4.jpg"></div>
+            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_5.jpg')"><img src="huma_5.jpg"></div>
+            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_6.jpg')"><img src="huma_6.jpg"></div>
+            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_7.jpg')"><img src="huma_7.jpg"></div>
             
-            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_1.png')"><img src="huma_1.jpg"></div>
-            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_2.png')"><img src="huma_2.jpg"></div>
+            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_1.jpg')"><img src="huma_1.jpg"></div>
+            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_2.jpg')"><img src="huma_2.jpg"></div>
             <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_3.png')"><img src="huma_3.png"></div>
-            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_4.png')"><img src="huma_4.jpg"></div>
-            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_5.png')"><img src="huma_5.jpg"></div>
-            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_6.png')"><img src="huma_6.jpg"></div>
-            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_7.png')"><img src="huma_7.jpg"></div>
+            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_4.jpg')"><img src="huma_4.jpg"></div>
+            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_5.jpg')"><img src="huma_5.jpg"></div>
+            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_6.jpg')"><img src="huma_6.jpg"></div>
+            <div class="huma-slider-item huma-gallery-item huma-item-glow" onclick="openLightbox('huma_7.jpg')"><img src="huma_7.jpg"></div>
         </div>
     </div>
 
@@ -1359,8 +1572,7 @@
 </div>
 </div>
 </div>
-    <style>
-    <style>
+   <style>
     /* 1. KHUNG BAO CHUYÊN ĐỀ VDS */
     .vds-section-wrapper {
         background-color: #ffffff;
@@ -1368,58 +1580,54 @@
         padding: 80px 0;
         margin: 4rem 0;
         border: 1px solid #f1f5f9;
-        /* Xóa overflow: hidden ở đây nếu nó làm mất bóng đổ của tiêu đề */
     }
-
+.vds-section-wrapper {
+    overflow: visible; /* Để ánh sáng (glow) có thể tỏa ra ngoài biên giới của khung */
+}
     .vds-badge {
         display: inline-block;
-        background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
-        color: white;
+        background: linear-gradient(135deg, #bf953f 0%, #fcf6ba 45%, #b38728 70%, #fbf5b7 100%);
+        color: #4a3b00;
         padding: 8px 24px;
         border-radius: 50px;
         font-weight: 800;
         margin-left: 40px;
         margin-bottom: 2rem;
-        box-shadow: 0 10px 20px rgba(16, 185, 129, 0.2);
+        box-shadow: 0 10px 20px rgba(184, 134, 11, 0.2);
     }
 
-    /* 2. FIX LỖI ÁNH SÁNG: HIỆU ỨNG HÀO QUANG TRỌN VẸN */
+    /* 2. HIỆU ỨNG ÁNH SÁNG TRỌN VẸN */
     .vds-glow-item {
         position: relative;
         transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         border: 2px solid transparent;
-        z-index: 1; /* Đảm bảo item nổi lên trên để thấy rõ bóng */
+        z-index: 1;
     }
-
-    /* Khi hover: Nhấc khung và tỏa hào quang không bị chặn */
     .vds-glow-item:hover {
-        transform: translateY(-12px) scale(1.02);
-        z-index: 99; /* Ưu tiên hiển thị lớp sáng trên cùng */
-        /* Sử dụng nhiều lớp shadow để ánh sáng tỏa đều và sâu hơn */
-        box-shadow: 0 0 20px rgba(16, 185, 129, 0.5), 
-                    0 0 40px rgba(59, 130, 246, 0.4),
-                    0 15px 35px rgba(0, 0, 0, 0.1);
-        border-color: rgba(16, 185, 129, 0.5);
+        transform: translateY(-15px) scale(1.03);
+        z-index: 10;
+        box-shadow: 0 0 25px rgba(191, 149, 63, 0.4), 
+                0 0 50px rgba(251, 245, 183, 0.3),
+                0 20px 40px rgba(0, 0, 0, 0.1);
+    border-color: rgba(191, 149, 63, 0.5);
     }
 
-    /* 3. GALLERY TRƯỢT TỰ ĐỘNG - THÊM PADDING ĐỂ KHÔNG BỊ CẮT BÓNG */
+    /* 3. GALLERY TRƯỢT TỰ ĐỘNG (SOCIAL POSTS) */
+    .vds-gallery-viewport {
+        overflow: hidden; /* Chỉ cắt ngang ở đây */
+        padding: 40px 0; /* Tạo không gian phía trên để bóng đổ (glow) không bị cắt */
+        width: 100%;
+    }
+
     .vds-scroll-wrap {
         display: flex;
         width: max-content;
         gap: 25px;
-        /* QUAN TRỌNG: Thêm padding dọc lớn để có không gian cho ánh sáng tỏa ra */
-        padding: 40px 40px; 
+        padding: 0 40px; /* Padding ngang để item đầu tiên không sát lề */
         animation: scrollVDS 35s linear infinite;
     }
 
     .vds-scroll-wrap:hover { animation-play-state: paused; }
-
-    /* Container bao quanh vùng trượt để ẩn phần thừa nhưng vẫn giữ không gian cho bóng */
-    .vds-gallery-viewport {
-        overflow: hidden;
-        margin: 0;
-        width: 100%;
-    }
 
     .vds-gallery-card {
         width: 280px;
@@ -1427,7 +1635,7 @@
         flex-shrink: 0;
         border-radius: 20px;
         overflow: hidden;
-        background: #fff;
+        background: #ffffff;
         border: 1px solid rgba(0,0,0,0.05);
     }
 
@@ -1435,72 +1643,92 @@
 
     @keyframes scrollVDS {
         0% { transform: translateX(0); }
-        100% { transform: translateX(calc(-305px * 5)); }
+        100% { transform: translateX(calc(-305px * 3)); } /* Chỉnh theo số lượng ảnh gốc */
+    }
+
+    /* 4. ĐỊNH DẠNG VIDEO MARKETING (16:9 SINGLE) */
+    .vds-single-video-container {
+        padding: 20px 40px 60px;
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    .vds-video-card {
+    position: relative; /* Thêm dòng này nếu chưa có */
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 24px;
+    overflow: hidden;
+    background: #ffffff;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+    .vds-video-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.8;
+        transition: 0.4s;
+    }
+
+    .vds-video-card:hover img { opacity: 1; }
+
+    .video-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 70px;
+        height: 70px;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #b8860b;
+        font-size: 1.5rem;
+        transition: 0.3s;
+        z-index: 2;
+    }
+
+    .vds-video-card:hover .video-overlay {
+        transform: translate(-50%, -50%) scale(1.1);
+        background: #fff;
+        color: #10b981;
     }
 </style>
 
 <div class="vds-section-wrapper">
-    <div class="vds-badge">DIGITAL SOLUTIONS @ VDS</div>
+    <div class="vds-badge">Công Ty Cổ Phần Giải Pháp Nền Tảng Số (VDS)</div>
     
-    <div style="padding: 0 40px; margin-bottom: 2rem;">
-        <h2 style="color: var(--text-color); font-weight: 800; font-size: 2.2rem; margin-bottom: 10px;">Hiệu quả bùng nổ</h2>
-    </div>
-
-    <div style="padding: 0 40px; margin-bottom: 3rem;">
-        <div style="font-weight: 800; font-size: 1.2rem; color: var(--text-color); margin-bottom: 20px;">
-            <i class="fas fa-chart-line" style="color: #f59e0b;"></i> Hiệu quả truyền thông
-        </div>
-        
-        <div style="display: flex; gap: 20px; width: 100%;">
-            
-            <div style="flex: 1;">
-                <div style="text-align: center; margin-bottom: 8px; color: #1877F2; font-size: 1.5rem;">
-                    <i class="fab fa-facebook"></i> <span style="font-size: 0.9rem; font-weight: 700; color: var(--text-color);">Facebook</span>
-                </div>
-                <div style="aspect-ratio: 16 / 9; overflow: hidden; border-radius: 8px; border: 1px solid rgba(0,0,0,0.05);">
-                    <img src="hieu_qua_1.jpg" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-                </div>
-            </div>
-
-            <div style="flex: 1;">
-                <div style="text-align: center; margin-bottom: 8px; color: #FF0000; font-size: 1.5rem;">
-                    <i class="fab fa-youtube"></i> <span style="font-size: 0.9rem; font-weight: 700; color: var(--text-color);">Youtube</span>
-                </div>
-                <div style="aspect-ratio: 16 / 9; overflow: hidden; border-radius: 8px; border: 1px solid rgba(0,0,0,0.05);">
-                    <img src="hieu_qua_2.jpg" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-                </div>
-            </div>
-
-        </div>
-    </div>
-
     <div style="padding: 0 40px; font-weight: 800; font-size: 1.2rem; color: var(--text-color);">
-        <i class="fas fa-image" style="color: #10b981;"></i> Poster & Thiết kế Truyền thông
+        <i class="fas fa-image" style="color: #b8860b !important;"></i> Social Post / Banner
     </div>
     
     <div class="vds-gallery-viewport">
         <div class="vds-scroll-wrap">
             <div class="vds-gallery-card vds-glow-item" onclick="openLightbox('vds_img_1.png')"><img src="vds_img_1.png"></div>
             <div class="vds-gallery-card vds-glow-item" onclick="openLightbox('vds_img_2.png')"><img src="vds_img_2.png"></div>
-            <div class="vds-gallery-card vds-glow-item" onclick="openLightbox('vds_img_3.png')"><img src="vds_img_3.jpg"></div>
-            <div class="vds-gallery-card vds-glow-item"><img src="vds_img_1.png"></div>
-            <div class="vds-gallery-card vds-glow-item"><img src="vds_img_2.png"></div>
-            <div class="vds-gallery-card vds-glow-item"><img src="vds_img_3.jpg"></div>
+            <div class="vds-gallery-card vds-glow-item" onclick="openLightbox('vds_img_3.jpg')"><img src="vds_img_3.jpg"></div>
+            <div class="vds-gallery-card vds-glow-item" onclick="openLightbox('vds_img_1.png')"><img src="vds_img_1.png"></div>
+            <div class="vds-gallery-card vds-glow-item" onclick="openLightbox('vds_img_2.png')"><img src="vds_img_2.png"></div>
+            <div class="vds-gallery-card vds-glow-item" onclick="openLightbox('vds_img_3.jpg')"><img src="vds_img_3.jpg"></div>
         </div>
     </div>
-    </div>
-</div>
 
-    <div style="padding: 0 40px; font-weight: 800; font-size: 1.2rem; color: var(--text-color); margin-bottom: 1rem;">
-        <i class="fas fa-play-circle" style="color: #3b82f6;"></i> Video Shorts & Biên tập Nội dung
+    <div style="padding: 0 40px; font-weight: 800; font-size: 1.2rem; color: var(--text-color); margin-top: 2rem;">
+        <i class="fas fa-play-circle" style="color: #d4af37 !important;"></i> Video Marketing
     </div>
-    <div style="overflow: hidden;">
-        <div class="vds-scroll-wrap" style="animation-direction: reverse;">
-            <div class="vds-gallery-card vds-glow-item" onclick="openLightbox('vds_vid_1.mp4')">
-                <img src="vds_vid_1.mp4"><div class="video-overlay"><i class="fas fa-play"></i></div>
-            </div>
-            <div class="vds-gallery-card vds-glow-item"><img src="vds_vid_1.mp4"><div class="video-overlay"><i class="fas fa-play"></i></div></div>
+
+    <div class="vds-single-video-container">
+    <a href="https://drive.google.com/file/d/1WixuXymkCSqO0sGhpzDdZJ5YGr-JJBSv/view?usp=sharing" target="_blank" style="text-decoration: none;">
+        <div class="vds-video-card vds-glow-item">
+            <img src="vds_vid_1.png">
+            <div class="video-overlay"><i class="fas fa-play"></i></div>
         </div>
+    </a>
+</div>
     </div>
 </div>
 </section>
@@ -1564,8 +1792,136 @@
         margin-top: 30px;
         text-transform: uppercase;
     }
-</style>
+/* NÚT LIÊN HỆ CỐ ĐỊNH */
+.fixed-contact-btn {
+    position: fixed;
+    right: 30px; /* Cách lề phải 30px */
+    bottom: 50px; /* Cách lề dưới 50px */
+    z-index: 999; /* Luôn nổi trên các khối khác */
+    
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    
+    /* Hiệu ứng trong suốt */
+    background: rgba(255, 255, 255, 0.15); 
+    backdrop-filter: blur(10px); /* Làm mờ nền phía sau như kính */
+    -webkit-backdrop-filter: blur(10px);
+    
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50px;
+    
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    
+    transition: all 0.4s ease;
+}
 
+.fixed-contact-btn i {
+    font-size: 1.1rem;
+    color: var(--accent-color); /* Màu Indigo hoặc Gold tùy theo mục bạn đang xem */
+}
+
+/* Hiệu ứng khi di chuột vào */
+.fixed-contact-btn:hover {
+    background: var(--accent-color);
+    color: #fff;
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+.fixed-contact-btn:hover i {
+    color: #fff;
+}
+
+/* Ẩn bớt chữ trên điện thoại nhỏ để tránh vướng */
+@media (max-width: 480px) {
+    .fixed-contact-btn span {
+        display: none;
+    }
+    .fixed-contact-btn {
+        padding: 15px;
+        right: 20px;
+    }
+}
+/* --- TỐI ƯU HÓA CHO THIẾT BỊ DI ĐỘNG --- */
+@media (max-width: 768px) {
+    /* 1. Thu nhỏ các khoảng cách padding quá lớn */
+    section {
+        padding: 40px 15px !important;
+    }
+
+    .mcv-corporate-wrapper, .vds-section-wrapper, .huma-section-wrapper {
+        padding: 40px 15px !important;
+        border-radius: 20px !important; /* Bo góc nhỏ lại cho thanh thoát */
+    }
+
+    /* 2. Ép các khối trượt ngang về kích thước màn hình */
+    .performance-block-wrapper {
+        min-width: 92% !important; /* Hiện 92% để thấy một chút của card tiếp theo */
+        margin-right: 10px;
+    }
+
+    /* 3. Chỉnh lại phần Social Posts (VDS/HUMA) */
+    .vds-gallery-card, .huma-gallery-item {
+        width: 220px !important; /* Thu nhỏ card ảnh */
+        height: 300px !important;
+    }
+
+    /* 4. Chỉnh lại Video Marketing */
+    .vds-single-video-container {
+        padding: 10px 0 !important;
+        max-width: 100% !important;
+    }
+
+    /* 5. Chỉnh lại chữ Thanks For Watching */
+    .thanks-script {
+        font-size: 4.5rem !important; /* Thu nhỏ chữ Thanks khổng lồ */
+    }
+    .thanks-modern {
+        font-size: 0.8rem !important;
+        letter-spacing: 4px !important;
+    }
+
+    /* 6. Chỉnh lại các Badge (MCV, VDS, HUMA) */
+    .mcv-main-badge, .vds-badge, .huma-badge {
+        margin-left: 0 !important;
+        width: 100%; /* Cho badge dàn hàng ngang toàn màn hình */
+        text-align: center;
+        font-size: 0.75rem !important;
+    }
+
+    /* 7. Các Grid ảnh bên trong card (định hướng nội dung) */
+    .content-grid-reveal {
+        grid-template-columns: repeat(2, 1fr) !important; /* Chuyển từ 3 cột sang 2 cột */
+        gap: 10px !important;
+    }
+}
+
+/* Tối ưu riêng cho điện thoại siêu nhỏ (iPhone SE,...) */
+@media (max-width: 480px) {
+    .stat-value {
+        font-size: 1.5rem !important;
+    }
+    .content-grid-reveal {
+        grid-template-columns: 1fr !important; /* Ép về 1 cột dọc */
+    }
+}
+</style>
+<section class="thanks-section">
+    <div class="thanks-text">
+        <span class="thanks-script">Thanks</span>
+        <span class="thanks-modern">For Watching</span>
+    </div>
+<a href="#contact" class="fixed-contact-btn">
+    <i class="fas fa-envelope"></i> 
+    <span>Liên hệ</span>
+</a>
+</section>
 <footer id="contact">
     <div class="huma-footer-box">
         <h2 style="text-align: center; width: 100%; border: none; margin-bottom: 30px; font-weight: 800; font-size: 2.2rem; color: var(--text-color); display: block;">
@@ -1611,14 +1967,52 @@
         }
     }
 
-    function openLightbox(src) { 
-        document.getElementById('lightbox-img').src = src; 
-        document.getElementById('lightbox').style.display = 'flex'; 
-        document.body.style.overflow = 'hidden'; 
-    }
+    function openLightbox(src) {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    
+    // Gán đường dẫn ảnh
+    lightboxImg.src = src;
+    
+    // Hiện lightbox
+    lightbox.style.display = 'flex';
+    
+    // Khóa cuộn trang khi đang xem ảnh
+    document.body.style.overflow = 'hidden';
+}
 
     function closeLightbox() { 
         document.getElementById('lightbox').style.display = 'none'; 
         document.body.style.overflow = 'auto'; 
     }
+</script>
+<script>
+    const words = ["con người", "thương hiệu"];
+    let currentIndex = 0;
+    const textElement = document.getElementById("flip-text");
+
+    function flipText() {
+        if(!textElement) return;
+        
+        // 1. Hiệu ứng biến mất
+        textElement.classList.add("fade-out");
+
+        setTimeout(() => {
+            // 2. Đổi nội dung chữ
+            currentIndex = (currentIndex + 1) % words.length;
+            textElement.innerText = words[currentIndex];
+
+            // 3. Chuẩn bị vị trí cho chữ mới
+            textElement.classList.remove("fade-out");
+            textElement.classList.add("fade-in");
+
+            // 4. Hiệu ứng xuất hiện
+            setTimeout(() => {
+                textElement.classList.remove("fade-in");
+            }, 50);
+        }, 500); // 500ms là thời gian khớp với transition trong CSS
+    }
+
+    // Chạy hiệu ứng lặp lại mỗi 3 giây
+    setInterval(flipText, 3000);
 </script>
