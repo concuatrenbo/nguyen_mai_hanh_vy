@@ -1756,16 +1756,23 @@ nav {
     window.addEventListener('scroll', function() {
         let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         
-        // Nếu cuộn xuống quá 50px
+        // 1. Hiệu ứng ẩn/hiện
         if (scrollTop > lastScrollTop && scrollTop > 50) {
-            // Cuộn xuống -> Ẩn menu
             navbar.classList.add('nav-hidden');
         } else {
-            // Cuộn lên -> Hiện menu
             navbar.classList.remove('nav-hidden');
         }
+
+        // 2. Thêm bóng đổ và nền đậm hơn khi cuộn để không bị lẫn vào nội dung
+        if (scrollTop > 20) {
+            navbar.style.boxShadow = "0 2px 10px rgba(0,0,0,0.1)";
+            navbar.style.background = "rgba(255, 255, 255, 0.95)";
+        } else {
+            navbar.style.boxShadow = "none";
+            navbar.style.background = "rgba(255, 255, 255, 0.85)";
+        }
         
-        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Đảm bảo không bị số âm
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
     }, false);
 </script>
 </section>
