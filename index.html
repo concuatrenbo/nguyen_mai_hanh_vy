@@ -7,6 +7,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Yellowtail&display=swap" rel="stylesheet">
+html {
+    scroll-behavior: smooth;
+}
     <style>
         :root { 
             /* Bảng màu mới: Bright & Professional */
@@ -1792,12 +1795,72 @@
         margin-top: 30px;
         text-transform: uppercase;
     }
+/* NÚT LIÊN HỆ CỐ ĐỊNH */
+.fixed-contact-btn {
+    position: fixed;
+    right: 30px; /* Cách lề phải 30px */
+    bottom: 50px; /* Cách lề dưới 50px */
+    z-index: 999; /* Luôn nổi trên các khối khác */
+    
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    
+    /* Hiệu ứng trong suốt */
+    background: rgba(255, 255, 255, 0.15); 
+    backdrop-filter: blur(10px); /* Làm mờ nền phía sau như kính */
+    -webkit-backdrop-filter: blur(10px);
+    
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50px;
+    
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    
+    transition: all 0.4s ease;
+}
+
+.fixed-contact-btn i {
+    font-size: 1.1rem;
+    color: var(--accent-color); /* Màu Indigo hoặc Gold tùy theo mục bạn đang xem */
+}
+
+/* Hiệu ứng khi di chuột vào */
+.fixed-contact-btn:hover {
+    background: var(--accent-color);
+    color: #fff;
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+.fixed-contact-btn:hover i {
+    color: #fff;
+}
+
+/* Ẩn bớt chữ trên điện thoại nhỏ để tránh vướng */
+@media (max-width: 480px) {
+    .fixed-contact-btn span {
+        display: none;
+    }
+    .fixed-contact-btn {
+        padding: 15px;
+        right: 20px;
+    }
+}
 </style>
 <section class="thanks-section">
     <div class="thanks-text">
         <span class="thanks-script">Thanks</span>
         <span class="thanks-modern">For Watching</span>
     </div>
+<a href="#footer" class="fixed-contact-btn">
+    <i class="fas fa-envelope"></i> 
+    <span>Liên hệ</span>
+</a>
 </section>
 <footer id="contact">
     <div class="huma-footer-box">
