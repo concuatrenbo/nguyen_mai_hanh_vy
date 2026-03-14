@@ -109,9 +109,56 @@
         .btn-outline { border: 2px solid #e2e8f0; color: var(--text-color); }
         .btn:hover { transform: translateY(-3px); }
 
-        /* THANKS SECTION (Tối ưu từ code cũ của bạn) */
-        .thanks-section { text-align: center; margin: 40px 0; }
-        .thanks-script { font-family: 'Yellowtail', cursive; font-size: 8rem; color: var(--accent-color); line-height: 1; }
+        /* TỐI ƯU PHẦN CĂN GIỮA VÀ KHOẢNG TRẮNG */
+.thanks-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Căn giữa theo chiều ngang */
+    justify-content: center; /* Căn giữa theo chiều dọc */
+    text-align: center;
+    padding: 100px 2rem; /* Tạo khoảng trống trên dưới vừa phải */
+    min-height: 40vh; /* Đảm bảo phần này có đủ độ cao để không bị quá trống */
+    width: 100%;
+}
+
+.thanks-text {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.thanks-script {
+    font-family: 'Yellowtail', cursive;
+    font-size: clamp(5rem, 15vw, 10rem); /* Tự co giãn theo màn hình */
+    color: var(--accent-color);
+    line-height: 0.8;
+    margin: 0;
+    z-index: 1;
+}
+
+.thanks-modern {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(0.8rem, 2vw, 1.2rem);
+    font-weight: 800;
+    color: var(--slate-400);
+    text-transform: uppercase;
+    letter-spacing: 10px; /* Giãn chữ để trông sang hơn */
+    margin-top: -10px; /* Kéo chữ phụ dính gần vào chữ chính */
+    padding-left: 10px; /* Bù lại khoảng trống của letter-spacing để thực sự căn giữa */
+}
+
+/* Fix lỗi trên Mobile */
+@media (max-width: 768px) {
+    .thanks-section {
+        padding: 60px 1.5rem;
+        min-height: 30vh;
+    }
+    .thanks-modern {
+        letter-spacing: 5px;
+        font-size: 0.7rem;
+    }
+}
 
         /* RESPONSIVE - TỔNG HỢP CHO TẤT CẢ THIẾT BỊ */
         @media (max-width: 992px) {
@@ -1687,7 +1734,7 @@
 </style>
 <section class="thanks-section">
     <div class="thanks-text">
-        <span class="thanks-script">Thanks</span>
+        <h2 class="thanks-script">Thanks</h2>
         <span class="thanks-modern">For Watching</span>
     </div>
 <a href="#contact" class="fixed-contact-btn">
