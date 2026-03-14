@@ -1851,6 +1851,69 @@ html {
         right: 20px;
     }
 }
+/* --- TỐI ƯU HÓA CHO THIẾT BỊ DI ĐỘNG --- */
+@media (max-width: 768px) {
+    /* 1. Thu nhỏ các khoảng cách padding quá lớn */
+    section {
+        padding: 40px 15px !important;
+    }
+
+    .mcv-corporate-wrapper, .vds-section-wrapper, .huma-section-wrapper {
+        padding: 40px 15px !important;
+        border-radius: 20px !important; /* Bo góc nhỏ lại cho thanh thoát */
+    }
+
+    /* 2. Ép các khối trượt ngang về kích thước màn hình */
+    .performance-block-wrapper {
+        min-width: 92% !important; /* Hiện 92% để thấy một chút của card tiếp theo */
+        margin-right: 10px;
+    }
+
+    /* 3. Chỉnh lại phần Social Posts (VDS/HUMA) */
+    .vds-gallery-card, .huma-gallery-item {
+        width: 220px !important; /* Thu nhỏ card ảnh */
+        height: 300px !important;
+    }
+
+    /* 4. Chỉnh lại Video Marketing */
+    .vds-single-video-container {
+        padding: 10px 0 !important;
+        max-width: 100% !important;
+    }
+
+    /* 5. Chỉnh lại chữ Thanks For Watching */
+    .thanks-script {
+        font-size: 4.5rem !important; /* Thu nhỏ chữ Thanks khổng lồ */
+    }
+    .thanks-modern {
+        font-size: 0.8rem !important;
+        letter-spacing: 4px !important;
+    }
+
+    /* 6. Chỉnh lại các Badge (MCV, VDS, HUMA) */
+    .mcv-main-badge, .vds-badge, .huma-badge {
+        margin-left: 0 !important;
+        width: 100%; /* Cho badge dàn hàng ngang toàn màn hình */
+        text-align: center;
+        font-size: 0.75rem !important;
+    }
+
+    /* 7. Các Grid ảnh bên trong card (định hướng nội dung) */
+    .content-grid-reveal {
+        grid-template-columns: repeat(2, 1fr) !important; /* Chuyển từ 3 cột sang 2 cột */
+        gap: 10px !important;
+    }
+}
+
+/* Tối ưu riêng cho điện thoại siêu nhỏ (iPhone SE,...) */
+@media (max-width: 480px) {
+    .stat-value {
+        font-size: 1.5rem !important;
+    }
+    .content-grid-reveal {
+        grid-template-columns: 1fr !important; /* Ép về 1 cột dọc */
+    }
+}
 </style>
 <section class="thanks-section">
     <div class="thanks-text">
