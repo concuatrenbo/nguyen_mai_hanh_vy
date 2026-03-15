@@ -92,12 +92,25 @@
 
         /* STATS BADGE */
         .stats-badge-container {
-            display: inline-flex; align-items: center; gap: 30px; 
-            padding: 20px 30px; background: #fff; border: 1.5px solid rgba(79, 70, 229, 0.2);
-            border-radius: 20px; margin-bottom: 30px;
-        }
+    display: inline-flex; 
+    align-items: center; 
+    gap: clamp(15px, 4vw, 30px); /* Gap tự co giãn từ 15px đến 30px */
+    padding: 20px clamp(15px, 5vw, 30px); 
+    background: #fff; 
+    border: 1.5px solid rgba(79, 70, 229, 0.2);
+    border-radius: 20px; 
+    margin-bottom: 30px;
+    max-width: 100%; /* Chống tràn màn hình */
+}
         .stat-number { display: block; font-size: 2rem; font-weight: 800; color: var(--accent-color); line-height: 1; }
-        .stat-label { font-size: 0.45rem; font-weight: 700; color: var(--slate-400); text-transform: uppercase; }
+        .stat-label { 
+    font-size: 0.65rem; 
+    font-weight: 700; 
+    color: var(--slate-400); 
+    text-transform: uppercase;
+    white-space: nowrap; /* QUAN TRỌNG: Chống rớt chữ NGHIỆM/THÁNG */
+    letter-spacing: 0.5px;
+}
         .stat-divider { width: 1px; height: 40px; background: rgba(79, 70, 229, 0.1); }
 
         /* BUTTONS */
@@ -114,11 +127,11 @@
 .thanks-section {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Căn giữa theo chiều ngang */
-    justify-content: center; /* Căn giữa theo chiều dọc */
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    padding: 100px 2rem; /* Tạo khoảng trống trên dưới vừa phải */
-    min-height: 40vh; /* Đảm bảo phần này có đủ độ cao để không bị quá trống */
+    padding: clamp(60px, 10vh, 120px) 2rem; /* Padding thông minh theo chiều cao màn hình */
+    min-height: 40vh;
     width: 100%;
 }
 
