@@ -1651,7 +1651,57 @@ nav {
         max-height: 90vh;
         object-fit: contain;
     }
+    #music-control {
+    position: fixed;
+    bottom: 30px;
+    left: 30px; /* Đặt bên trái để không đè lên nút Liên hệ bên phải */
+    background: var(--bg-color);
+    border: 1.5px solid var(--accent-color);
+    padding: 10px 15px;
+    border-radius: 50px;
+    cursor: pointer;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: var(--transition);
+}
+
+#music-control:hover {
+    transform: scale(1.05);
+}
+
+#music-control i {
+    color: var(--accent-color);
+}
+
+#music-status {
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: var(--text-color);
+}
+
+/* Hiệu ứng nhịp điệu khi nhạc đang phát */
+.music-playing i {
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
 </style>
+    <audio id="bg-music" loop>
+    <source src="link-nhac-cua-ban.mp3" type="audio/mpeg">
+    Trình duyệt của bạn không hỗ trợ phát nhạc.
+</audio>
+
+<div id="music-control" onclick="toggleMusic()">
+    <i class="fas fa-music"></i>
+    <span id="music-status">OFF</span>
+</div>
 <style>
     /* Khung liên hệ màu xanh tím trong suốt */
     .huma-footer-box {
@@ -1993,4 +2043,19 @@ nav {
 
     // Chạy hiệu ứng lặp lại mỗi 3 giây
     setInterval(flipText, 3000);
+    function toggleMusic() {
+    const music = document.getElementById('bg-music');
+    const status = document.getElementById('music-status');
+    const control = document.getElementById('music-control');
+
+    if (music.paused) {
+        music.play();
+        status.innerText = "ON";
+        control.classList.add('music-playing');
+    } else {
+        music.pause();
+        status.innerText = "OFF";
+        control.classList.remove('music-playing');
+    }
+}
 </script>
