@@ -1653,8 +1653,8 @@ nav {
     }
     #music-control {
     position: fixed;
-    bottom: 30px;
-    left: 30px; /* Đặt bên trái để không đè lên nút Liên hệ bên phải */
+    bottom: 80px;
+    right: 30px; /* Đặt bên trái để không đè lên nút Liên hệ bên phải */
     background: var(--bg-color);
     border: 1.5px solid var(--accent-color);
     padding: 10px 15px;
@@ -1691,6 +1691,17 @@ nav {
     0% { transform: scale(1); }
     50% { transform: scale(1.2); }
     100% { transform: scale(1); }
+}
+    /* Tối ưu cho Mobile để 2 nút không bị "dẫm chân" nhau */
+@media (max-width: 768px) {
+    #music-control {
+        bottom: 20px;
+        right: 85px; /* Thu hẹp lại trên mobile */
+        padding: 10px; /* Biến thành nút tròn cho gọn */
+    }
+    #music-status {
+        display: none; /* Ẩn chữ OFF/ON trên mobile để nhường chỗ */
+    }
 }
 </style>
     <audio id="bg-music" loop>
