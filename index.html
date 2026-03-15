@@ -63,10 +63,32 @@
         nav a { text-decoration: none; color: var(--text-color); font-size: 0.9rem; font-weight: 600; opacity: 0.7; transition: var(--transition); }
         nav a:hover { color: var(--accent-color); opacity: 1; }
 
-        /* HERO SECTION */
-        section { padding: 120px 2rem 80px; max-width: var(--max-width); margin: 0 auto; }
+        /* HAMBURGER MENU */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 1001;
+        }
+        .hamburger span {
+            width: 24px;
+            height: 2px;
+            background: var(--text-color);
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+        nav.menu-open .hamburger span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        nav.menu-open .hamburger span:nth-child(2) { opacity: 0; }
+        nav.menu-open .hamburger span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
-        .hero { min-height: 100vh; display: flex; align-items: center; gap: 4rem; }
+        /* HERO SECTION */
+        section { padding: 50px 2rem 30px; max-width: var(--max-width); margin: 0 auto; }
+
+        .hero { display: flex; align-items: center; gap: 2rem; }
         .hero-image { 
             width: 320px; height: 320px; 
             border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
@@ -88,13 +110,13 @@
         .slogan-text { font-size: 1.5rem; font-weight: 700; line-height: 1.4; margin-bottom: 1.5rem; display: block; }
         .flip-wrapper { color: var(--accent-color); font-weight: 800; border-bottom: 2px solid rgba(79, 70, 229, 0.2); }
 
-        .intro-text { border-left: 3px solid var(--accent-color); padding-left: 20px; margin-bottom: 2.5rem; }
+        .intro-text { border-left: 3px solid var(--accent-color); padding-left: 20px; margin-bottom: 1.5rem; }
 
         /* STATS BADGE */
         .stats-badge-container {
             display: inline-flex; align-items: center; gap: 30px; 
             padding: 20px 30px; background: #fff; border: 1.5px solid rgba(79, 70, 229, 0.2);
-            border-radius: 20px; margin-bottom: 30px;
+            border-radius: 20px; margin-bottom: 20px;
         }
         .stat-number { display: block; font-size: 3rem; font-weight: 900; color: var(--accent-color); line-height: 1; }
         .stat-label { font-size: 0.65rem; font-weight: 700; color: var(--slate-400); text-transform: uppercase; }
@@ -122,7 +144,7 @@
     align-items: center; /* Căn giữa theo chiều ngang */
     justify-content: center; /* Căn giữa theo chiều dọc */
     text-align: center;
-    padding: 100px 2rem; /* Tạo khoảng trống trên dưới vừa phải */
+    padding: 60px 2rem; /* Tạo khoảng trống trên dưới vừa phải */
     min-height: 40vh; /* Đảm bảo phần này có đủ độ cao để không bị quá trống */
     width: 100%;
 }
@@ -157,8 +179,8 @@
 /* Fix lỗi trên Mobile */
 @media (max-width: 768px) {
     .thanks-section {
-        padding: 60px 1.5rem;
-        min-height: 30vh;
+        padding: 40px 1.5rem;
+        min-height: 25vh;
     }
     .thanks-modern {
         letter-spacing: 5px;
@@ -168,26 +190,50 @@
 
         /* RESPONSIVE - TỔNG HỢP CHO TẤT CẢ THIẾT BỊ */
         @media (max-width: 992px) {
-            .hero { flex-direction: column-reverse; text-align: center; gap: 3rem; }
+            .hero { flex-direction: column-reverse; text-align: center; gap: 2rem; }
             .intro-text { border-left: none; border-top: 3px solid var(--accent-color); padding: 20px 0 0; }
             .stats-badge-container { justify-content: center; }
         }
 
         @media (max-width: 768px) {
-            section { padding: 140px 1.5rem 60px; }
-            nav ul li::before {
-        content: none !important; /* Xóa bỏ chấm tròn */
-    }
-            /* Nav cuộn ngang cho mobile */
-            .nav-container { padding: 1rem; }
-            nav ul { gap: 1rem; overflow-x: auto; width: 100%; padding-bottom: 5px; scrollbar-width: none; }
-            nav ul::-webkit-scrollbar { display: none; }
-            nav a { white-space: nowrap; background: var(--secondary-bg); padding: 6px 15px; border-radius: 20px; }
-nav { 
-    /* ... các code cũ của bạn ... */
-    transition: transform 0.3s ease-in-out; /* Thêm dòng này để ẩn hiện mượt mà */
+            section { padding: 30px 1.5rem 20px; }
+
+            /* Hamburger menu mobile */
+            .hamburger { display: flex; }
+            .nav-container { padding: 1rem 1.5rem; position: relative; }
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                flex-direction: column;
+                gap: 0;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                padding: 0.5rem 0;
+                border-top: 1px solid rgba(0, 0, 0, 0.05);
+                box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            }
+            nav.menu-open ul { display: flex; }
+            nav ul li { list-style: none; }
+            nav ul li::before { content: none !important; }
+            nav a {
+                display: block;
+                padding: 14px 2rem;
+                font-size: 1rem;
+                opacity: 1;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+                background: none;
+                border-radius: 0;
+                white-space: normal;
+            }
+            nav a:hover { background: var(--secondary-bg); }
+
+nav {
+    transition: transform 0.3s ease-in-out;
 }
-/* Class này sẽ được JS thêm vào khi cuộn xuống */
 .nav-hidden {
     transform: translateY(-100%);
 }
@@ -226,6 +272,11 @@ nav {
     <nav>
         <div class="nav-container">
             <div class="logo">Hạnh Vy</div>
+            <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <ul>
                 <li><a href="#about">Giới thiệu</a></li>
                 <li><a href="#education">Học vấn</a></li>
@@ -924,7 +975,7 @@ nav {
         background: #fcfcfd; /* Nền sáng nhẹ phân biệt mục tiêu điểm */
         border-radius: 40px;
         padding: 50px 30px;
-        margin: 4rem 0;
+        margin: 1.5rem 0;
         border: 2px solid #f1f5f9;
         position: relative;
     }
@@ -1240,8 +1291,8 @@ nav {
     .huma-section-wrapper {
         background-color: #fff;
         border-radius: 40px;
-        padding: 80px 0; /* Padding dọc, giữ 0 ở ngang để ảnh trượt tràn viền */
-        margin: 4rem 0;
+        padding: 30px 0; /* Padding dọc, giữ 0 ở ngang để ảnh trượt tràn viền */
+        margin: 1.5rem 0;
         border: 1px solid #f1f5f9;
         overflow: hidden; /* Quan trọng để ẩn phần ảnh thừa khi trượt */
     }
@@ -1433,8 +1484,8 @@ nav {
     .vds-section-wrapper {
         background-color: #ffffff;
         border-radius: 40px;
-        padding: 80px 0;
-        margin: 4rem 0;
+        padding: 30px 0;
+        margin: 1.5rem 0;
         border: 1px solid #f1f5f9;
     }
 .vds-section-wrapper {
@@ -1708,11 +1759,11 @@ nav {
 @media (max-width: 768px) {
     /* 1. Thu nhỏ các khoảng cách padding quá lớn */
     section {
-        padding: 40px 15px !important;
+        padding: 30px 15px !important;
     }
 
     .mcv-corporate-wrapper, .vds-section-wrapper, .huma-section-wrapper {
-        padding: 40px 15px !important;
+        padding: 25px 15px !important;
         border-radius: 20px !important; /* Bo góc nhỏ lại cho thanh thoát */
     }
 
@@ -1756,6 +1807,26 @@ nav {
         grid-template-columns: repeat(2, 1fr) !important; /* Chuyển từ 3 cột sang 2 cột */
         gap: 10px !important;
     }
+
+    /* 8. Giảm gap và spacing cho mobile */
+    .hero {
+        gap: 1.5rem !important;
+    }
+    .timeline-block {
+        margin-bottom: 30px !important;
+    }
+    .perf-card-large {
+        padding: 20px !important;
+    }
+    .card-header-flex {
+        margin-bottom: 15px !important;
+    }
+    .category {
+        margin: 1.5rem 0 1rem !important;
+    }
+    .mcv-main-badge, .huma-badge, .vds-badge {
+        margin-bottom: 1.5rem !important;
+    }
 }
 
 /* Tối ưu riêng cho điện thoại siêu nhỏ (iPhone SE,...) */
@@ -1765,6 +1836,12 @@ nav {
     }
     .content-grid-reveal {
         grid-template-columns: 1fr !important; /* Ép về 1 cột dọc */
+    }
+    .hero {
+        gap: 1rem !important;
+    }
+    .stats-badge-container {
+        gap: 8px !important;
     }
 }
 </style>
@@ -1802,6 +1879,25 @@ nav {
         
         lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
     }, false);
+
+    // Hamburger menu toggle
+    function toggleMenu() {
+        navbar.classList.toggle('menu-open');
+    }
+
+    // Đóng menu khi click vào link
+    document.querySelectorAll('nav a').forEach(function(link) {
+        link.addEventListener('click', function() {
+            navbar.classList.remove('menu-open');
+        });
+    });
+
+    // Đóng menu khi click bên ngoài
+    document.addEventListener('click', function(e) {
+        if (!navbar.contains(e.target)) {
+            navbar.classList.remove('menu-open');
+        }
+    });
 </script>
 </section>
 <footer id="contact">
