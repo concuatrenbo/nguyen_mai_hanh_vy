@@ -483,6 +483,26 @@ nav {
         }
         .tab-item.active { border-bottom: 2px solid var(--accent-color); }
     }
+/* Thêm đoạn này để định dạng nút Xem kho chứng chỉ */
+.job-content .btn-outline {
+    display: inline-block; /* Để nhận padding và margin */
+    padding: 10px 20px;
+    border: 1.5px solid var(--accent-color);
+    color: var(--accent-color);
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    margin-top: 15px; /* Khoảng cách với khung phía trên */
+}
+
+.job-content .btn-outline:hover {
+    background: var(--accent-color);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(79, 70, 229, 0.2);
+}
 </style>
 
 <section id="education">
